@@ -1,0 +1,35 @@
+{
+  "source": "100+ Python challenging programming exercises for Python 3.md",
+  "md_sha256": "9d158c7c90ab8647ee4b336f87d845ab54e2cda8b63c710c56ad814b93593e63",
+  "solution": "import random\nprint(random.choice([i for i in range(201) if i%5==0 and i%7==0]))\n",
+  "cases": [
+    {
+      "input": "published solution, seeds 0-99",
+      "expected": "one of [0, 35, 70, 105, 140, 175], format \\d+\\n",
+      "actual_values_seen": [
+        0,
+        35,
+        70,
+        105,
+        140,
+        175
+      ],
+      "sample_actual": "'105\\n'"
+    },
+    {
+      "input": "range(1) (upper bound 0), seeds 0-99",
+      "expected": "'0\\n'",
+      "actual": "'0\\n'"
+    },
+    {
+      "input": "bounds 0, 10, 34 -> '0\\n'; bound 35 -> {0, 35}",
+      "expected": "as stated",
+      "actual": "as stated"
+    }
+  ],
+  "tools": {
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "platform": "Linux-6.18.44-fc-v378-x86_64-with-glibc2.39",
+    "git": "git version 2.43.0"
+  }
+}
