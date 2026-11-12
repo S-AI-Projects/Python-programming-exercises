@@ -1774,15 +1774,21 @@ print(random.choice([i for i in range(11) if i%2==0]))
 ```
 
 ### Question 77
-Please write a program to output a random number, which is divisible by 5 and 7, between 0 and 10 inclusive using random module and list comprehension.
+Please write a program to output a random number, which is divisible by 5 and 7, between 0 and 200 inclusive using random module and list comprehension.
 
 Hints:
 Use random.choice() to a random element from a list.
+A number divisible by both 5 and 7 is a multiple of 35, so the candidates between 0 and 200 are 0, 35, 70, 105, 140 and 175. 0 always qualifies, so the list is never empty here. If the upper bound is below 35, 0 is the only candidate and the output is always 0.
 
 Solution:
 ```python
 import random
 print(random.choice([i for i in range(201) if i%5==0 and i%7==0]))
+```
+
+Output (random; prints one candidate as a bare integer on its own line, for example):
+```
+105
 ```
 
 ### Question 78
