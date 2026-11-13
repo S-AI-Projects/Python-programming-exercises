@@ -1892,19 +1892,50 @@ print(li)
 ### Question 86
 Please write a program to generate all sentences where subject is in ["I", "You"] and verb is in ["Play", "Love"] and the object is in ["Hockey","Football"].
 
+Example:
+If the following lists are given as input to the program:
+subjects = ["I", "You"]
+verbs = ["Play", "Love"]
+objects = ["Hockey", "Football"]
+
+Then, the output of the program should be:
+I Play Hockey.
+I Play Football.
+I Love Hockey.
+I Love Football.
+You Play Hockey.
+You Play Football.
+You Love Hockey.
+You Love Football.
+
+Smallest supported input:
+subjects = ["I"]
+verbs = ["Play"]
+objects = ["Hockey"]
+
+Then, the output of the program should be:
+I Play Hockey.
+
 Hints:
-Use list[index] notation to get a element from a list.
+Iterate directly over the elements using nested for loops (or itertools.product) and format sentences with f-strings, or use list[index] notation.
 
 Solution:
 ```python
-subjects=["I", "You"]
-verbs=["Play", "Love"]
-objects=["Hockey","Football"]
-for i in range(len(subjects)):
-    for j in range(len(verbs)):
-        for k in range(len(objects)):
-            sentence = "%s %s %s." % (subjects[i], verbs[j], objects[k])
-            print(sentence)
+def generate_sentences(subjects, verbs, objects):
+    sentences = []
+    for subject in subjects:
+        for verb in verbs:
+            for obj in objects:
+                sentence = f"{subject} {verb} {obj}."
+                print(sentence)
+                sentences.append(sentence)
+    return sentences
+
+subjects = ["I", "You"]
+verbs = ["Play", "Love"]
+objects = ["Hockey", "Football"]
+
+generate_sentences(subjects, verbs, objects)
 ```
 
 ### Question 87

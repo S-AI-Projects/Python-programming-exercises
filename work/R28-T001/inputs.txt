@@ -1,0 +1,18 @@
+[published_example]
+Description: Exact published example from Question 86
+Subjects: ['I', 'You']
+Verbs: ['Play', 'Love']
+Objects: ['Hockey', 'Football']
+
+[smallest_supported_input]
+Description: Smallest supported input (single element per category)
+Subjects: ['I']
+Verbs: ['Play']
+Objects: ['Hockey']
+
+[empty_boundary_input]
+Description: Boundary edge case (empty list per category)
+Subjects: []
+Verbs: []
+Objects: []
+
