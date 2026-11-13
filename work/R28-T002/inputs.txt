@@ -1,0 +1,2 @@
+No stdin is required (Question 37 is a no-input demonstration).
+

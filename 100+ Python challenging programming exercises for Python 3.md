@@ -938,22 +938,39 @@ printDict()
 ### Question 37
 Define a function which can generate and print a list where the values are square of numbers between 1 and 20 (both included).
 
+Example:
+Then, the output of the program should be:
+
+[1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225, 256, 289, 324, 361, 400]
+
 Hints:
 
 Use ** operator to get power of a number.
 Use range() for loops.
 Use list.append() to add values into a list.
 
-Solution
+Solution:
 ```python
 def printList():
-	li=list()
-	for i in range(1,21):
-		li.append(i**2)
-	print(li)
+    li = list()
+    for i in range(1, 21):
+        li.append(i**2)
+    print(li)
 
 printList()
 ```
+
+Explanation:
+1. **Empty list creation**: The function initializes an empty list with `li = list()` to accumulate the computed squares sequentially.
+2. **Loop range and boundaries**: The loop iterates using `range(1, 21)`. In Python, `range(start, stop)` generates integers from `start` up to, but not including, `stop` (the upper bound 21 is excluded). This ensures `i` takes values from 1 to 20 inclusive, matching the requirement "between 1 and 20 (both included)". The loop's behavior is determined by these range boundaries.
+3. **Square calculation**: The exponentiation operator `**` computes powers; `i**2` calculates the square of `i` ($i \times i$).
+4. **Boundary case and values**:
+   - This is a no-input demonstration whose behavior is governed by the loop range.
+   - First iteration (smallest supported loop value): `i = 1`. Intermediate calculation: `1**2 = 1`. First appended value: `1` (the smallest generated value).
+   - Final iteration (largest supported loop value): `i = 20`. Intermediate calculation: `20**2 = 400`. Last appended value: `400` (the largest generated value).
+5. **Step-by-step list construction**: During each iteration, `li.append(i**2)` computes the square and appends it to the end of `li`. Over 20 iterations, the list grows from `[1]` to `[1, 4]` up to `[1, 4, ..., 400]`, generating exactly 20 values.
+6. **Output**: Finally, `print(li)` outputs the complete list in standard Python list formatting.
+
 ### Question 38
 Define a function which can generate a list where the values are square of numbers between 1 and 20 (both included). Then the function needs to print the first 5 elements in the list.
 

@@ -1,0 +1,14 @@
+=== Automated Checker Results for Question 37 (Issue R28-T002) ===
+Code Extraction: SUCCESS
+Expected Output Resolution: SUCCESS
+Python Version: Python 3.15.2
+Subprocess Execution: SUCCESS (exit code 0)
+Positive Test: PASSED (exact match with published example)
+Assertion (total count == 20): PASSED (20)
+Assertion (first square == 1): PASSED (1)
+Assertion (last square == 400): PASSED (400)
+Negative Test 1 (incorrect expected content): PASSED (assertion raised)
+Negative Test 2 (incorrect first element): PASSED (assertion raised)
+Negative Test 3 (incorrect last element): PASSED (assertion raised)
+Negative Test 4 (incorrect length 19 elements): PASSED (assertion raised)
+ALL CHECKS PASSED SUCCESSFULLY.
