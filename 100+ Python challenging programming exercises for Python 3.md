@@ -1802,11 +1802,24 @@ Please write a program to randomly generate a list with 5 even numbers between 1
 
 Hints:
 Use random.sample() to generate a list of random values.
+random.sample() picks values without repeating, so all 5 numbers are different. There are 51 even numbers from 100 to 200, and sample() needs at least 5 values to choose from; with fewer it raises ValueError.
 
 Solution:
 ```python
 import random
 print(random.sample([i for i in range(100,201) if i%2==0], 5))
+```
+
+Alternative:
+```python
+import random
+print(random.sample(range(100,201,2), 5))
+```
+The range steps by 2, so it produces the 51 even numbers itself and no list comprehension is needed.
+
+Output (random; the values and their order vary, for example):
+```
+[148, 196, 152, 104, 132]
 ```
 
 ### Question 80
