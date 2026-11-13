@@ -1892,6 +1892,18 @@ print(li)
 ### Question 86
 Please write a program to generate all sentences where subject is in ["I", "You"] and verb is in ["Play", "Love"] and the object is in ["Hockey","Football"].
 
+Example:
+Then, the output of the program should be:
+
+I Play Hockey.
+I Play Football.
+I Love Hockey.
+I Love Football.
+You Play Hockey.
+You Play Football.
+You Love Hockey.
+You Love Football.
+
 Hints:
 Use list[index] notation to get a element from a list.
 
@@ -1906,6 +1918,16 @@ for i in range(len(subjects)):
             sentence = "%s %s %s." % (subjects[i], verbs[j], objects[k])
             print(sentence)
 ```
+
+Explanation:
+The solution uses three nested `for` loops to iterate over each list and generate all possible combinations of sentences:
+1. The outer loop uses index `i` over `range(len(subjects))` to select each subject with `subjects[i]`.
+2. The middle loop uses index `j` over `range(len(verbs))` to select each verb with `verbs[j]`.
+3. The inner loop uses index `k` over `range(len(objects))` to select each object with `objects[k]`.
+
+Inside the innermost loop, `sentence = "%s %s %s." % (subjects[i], verbs[j], objects[k])` formats the selected subject, verb, and object into a sentence ending with a period (`.`).
+
+Because there are 2 subjects (`["I", "You"]`), 2 verbs (`["Play", "Love"]`), and 2 objects (`["Hockey", "Football"]`), the nested loops evaluate each combination across the three lists. By the multiplication principle of counting, 2 × 2 × 2 produces eight sentences in total.
 
 ### Question 87
 Please write a program to print the list after removing delete even numbers in [5,6,77,45,22,12,24].
