@@ -1,0 +1,37 @@
+{
+  "source": "100+ Python challenging programming exercises for Python 3.md",
+  "md_sha256": "24fb9b415ec43f2e466d1fa4667c267aba29e2a6fd304a38de59fa0f0d75eebd",
+  "solution": "import random\nprint(random.sample([i for i in range(100,201) if i%2==0], 5))\n",
+  "alternative": "import random\nprint(random.sample(range(100,201,2), 5))\n",
+  "cases": [
+    {
+      "input": "published solution, seeds 0-99",
+      "expected": "list of 5 distinct even ints in [100,200], printed as a list repr + newline",
+      "actual_sample": [
+        "[148, 196, 152, 104, 132]\n",
+        "[116, 172, 196, 108, 132]\n"
+      ]
+    },
+    {
+      "input": "range(100,109): 5 evens, k=5",
+      "expected": "a permutation of [100,102,104,106,108]",
+      "actual": "[106, 108, 100, 102, 104]\n",
+      "distinct_orders_seen": 66
+    },
+    {
+      "input": "range(100,107): 4 evens, k=5",
+      "expected": "non-zero exit, ValueError",
+      "actual": "exit 1: ValueError: Sample larger than population or is negative"
+    },
+    {
+      "input": "alternative random.sample(range(100,201,2), 5), seeds 0-99",
+      "expected": "same property; source scans 101 numbers and keeps 51 in a list, alternative is a step-2 range of 51",
+      "actual": "100/100 seeds print the same list as the source"
+    }
+  ],
+  "tools": {
+    "python": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "platform": "macOS-26.5-arm64-arm-64bit-Mach-O",
+    "git": "git version 2.55.0"
+  }
+}
