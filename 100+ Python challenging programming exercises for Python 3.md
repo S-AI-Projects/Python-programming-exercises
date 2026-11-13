@@ -2021,6 +2021,15 @@ print(li)
 ### Question 94
 With a given list [12,24,35,24,88,120,155,88,120,155], write a program to print this list after removing all duplicate values with original order reserved.
 
+Example:
+If the following list is given as input to the program:
+
+[12, 24, 35, 24, 88, 120, 155, 88, 120, 155]
+
+Then, the output of the program should be:
+
+[12, 24, 35, 88, 120, 155]
+
 Hints:
 Use set() to store a number of values without duplicate.
 
@@ -2039,6 +2048,52 @@ def removeDuplicate( li ):
 li=[12,24,35,24,88,120,155,88,120,155]
 print(removeDuplicate(li))
 ```
+
+Explanation:
+### How the original `removeDuplicate()` works:
+1. **Tracking encountered values with `seen`**: The function initializes an empty set `seen = set()`. In Python, sets use hash tables providing $O(1)$ average time complexity for membership testing (`item not in seen`) and insertion (`seen.add(item)`). Every time an item is encountered for the first time, it is added to `seen`.
+2. **Preserving original order with `newli`**: The list `newli = []` stores elements in the exact order of their first appearance. Only when an item is encountered for the first time is it appended to `newli` (`newli.append(item)`).
+3. **Skipping duplicate values**: When an item has already been encountered in an earlier iteration, `item not in seen` evaluates to `False`. As a result, the loop skips adding that item to `newli`, thereby filtering out all subsequent duplicates while maintaining the first occurrence of each value.
+4. **Concrete intermediate state**:
+   Consider processing the published list `li = [12, 24, 35, 24, 88, 120, 155, 88, 120, 155]`:
+   - Step 1 (`item = 12`): `12 not in seen` is True -> `seen = {12}`, `newli = [12]`
+   - Step 2 (`item = 24`): `24 not in seen` is True -> `seen = {12, 24}`, `newli = [12, 24]`
+   - Step 3 (`item = 35`): `35 not in seen` is True -> `seen = {12, 24, 35}`, `newli = [12, 24, 35]`
+   - Step 4 (`item = 24`): `24 not in seen` is False (already in `seen`) -> skipped without modifying `seen` or `newli`.
+   - **Concrete intermediate state snapshot after processing index 3 (item `24`)**:
+     - `seen = {12, 24, 35}`
+     - `newli = [12, 24, 35]`
+     - Element `24` was identified as a duplicate and omitted.
+   - Subsequent steps process `88`, `120`, and `155` (appended on first encounter), and bypass later occurrences of `88`, `120`, and `155`.
+   - Final returned list: `[12, 24, 35, 88, 120, 155]`.
+
+### Alternative Method:
+```python
+def removeDuplicateAlternative(li):
+    result = []
+    for item in li:
+        if item not in result:
+            result.append(item)
+    return result
+
+li = [12, 24, 35, 24, 88, 120, 155, 88, 120, 155]
+print(removeDuplicateAlternative(li))
+```
+
+### Comparison of Methods:
+- **Original method (`removeDuplicate`)**: Uses a hash set (`seen`) for $O(1)$ fast membership checking and an output list (`newli`) for ordered output. This achieves an overall time complexity of $O(N)$ with $O(N)$ auxiliary space.
+- **Alternative method (`removeDuplicateAlternative`)**: Directly checks membership within the output list (`if item not in result:`). This eliminates the need for a secondary hash set data structure and is simpler and more intuitive to understand. However, linear scanning of the list requires $O(K)$ time per lookup (where $K$ is the current length of `result`), resulting in $O(N^2)$ worst-case time complexity for larger lists.
+- **Order preservation**: Both methods preserve the first-occurrence order because items are appended sequentially to the result list only upon their first appearance.
+
+### Smallest Supported Input Case:
+The smallest supported input case is an empty list:
+```python
+li = []
+```
+- For the original method: `removeDuplicate([])` returns `[]`.
+- For the alternative method: `removeDuplicateAlternative([])` returns `[]`.
+
+**Why this is valid**: An empty list contains zero elements. The loop `for item in li:` performs zero iterations. No elements are tested or appended, and the function immediately returns an empty list `[]`. Since an empty list contains no duplicates, returning `[]` is logically and mathematically valid.
 
 ### Question 95
 Define a class Person and its two child classes: Male and Female. All classes have a method "getGender" which can print "Male" for Male class and "Female" for Female class.
