@@ -1,0 +1,35 @@
+{
+  "published_example": {
+    "description": "Exact published example from Question 86",
+    "subjects": [
+      "I",
+      "You"
+    ],
+    "verbs": [
+      "Play",
+      "Love"
+    ],
+    "objects": [
+      "Hockey",
+      "Football"
+    ]
+  },
+  "smallest_supported_input": {
+    "description": "Smallest supported input (single element per category)",
+    "subjects": [
+      "I"
+    ],
+    "verbs": [
+      "Play"
+    ],
+    "objects": [
+      "Hockey"
+    ]
+  },
+  "empty_boundary_input": {
+    "description": "Boundary edge case (empty list per category)",
+    "subjects": [],
+    "verbs": [],
+    "objects": []
+  }
+}
