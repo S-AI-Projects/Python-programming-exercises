@@ -1,0 +1,11 @@
+=== Actual Subprocess Output (removeDuplicate) ===
+[12, 24, 35, 88, 120, 155]
+
+=== Actual Subprocess Output (removeDuplicateAlternative) ===
+[12, 24, 35, 88, 120, 155]
+
+=== Actual In-Memory Results ===
+removeDuplicate(published_fixture):            [12, 24, 35, 88, 120, 155]
+removeDuplicateAlternative(published_fixture): [12, 24, 35, 88, 120, 155]
+removeDuplicate([]):                           []
+removeDuplicateAlternative([]):                []

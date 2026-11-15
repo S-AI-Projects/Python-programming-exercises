@@ -1,0 +1,25 @@
+{
+  "published_fixture": {
+    "description": "Question 94 published list with multiple duplicates",
+    "input": [
+      12,
+      24,
+      35,
+      24,
+      88,
+      120,
+      155,
+      88,
+      120,
+      155
+    ],
+    "length": 10,
+    "unique_elements_count": 6
+  },
+  "smallest_supported_input": {
+    "description": "Smallest valid input boundary case (empty list)",
+    "input": [],
+    "length": 0,
+    "unique_elements_count": 0
+  }
+}
