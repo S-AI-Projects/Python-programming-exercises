@@ -1,0 +1,46 @@
+R28-T002 Question 37 Automated Test Results
+Python: 3.15.2
+Status: ALL TESTS PASSED
+Checks Verified:
+  1. Extracted code from Markdown matches published Solution
+  2. Subprocess execution succeeds without errors
+  3. Exact published output string matches expected list
+  4. List contains exactly 20 elements
+  5. First element is 1 (1**2)
+  6. Last element is 400 (20**2)
+  7. Every element matches the square of its integer index
+  8. Smallest valid loop-bound variation range(1, 1) produces empty list []
+  9. Deliberate incorrect-result tests verify checker error detection
+
+Execution Log:
+
+[Step 1] Extracting actual code from Question 37...
+Extracted solution code:
+----------------------------------------
+def printList():
+    li = list()
+    for i in range(1, 21):
+        li.append(i**2)
+    print(li)
+
+printList()
+----------------------------------------
+
+[Step 2] Executing extracted code via Python subprocess...
+Subprocess stdout: [1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225, 256, 289, 324, 361, 400]
+
+[Step 3] Verifying exact published output specifications...
+PASS: Exact string output matches published list.
+PASS: Exactly 20 square numbers verified.
+PASS: First element is 1 (1**2).
+PASS: Last element is 400 (20**2).
+PASS: Every element is the square of its corresponding integer from 1 to 20.
+
+[Step 4] Testing boundary case: smallest valid loop-bound variation range(1, 1)...
+Boundary subprocess stdout: []
+PASS: Boundary case range(1, 1) produces empty list [] as start == stop.
+
+[Step 5] Running deliberate incorrect-result tests to prove error detection...
+PASS: Deliberate errors (wrong length, wrong first/last, non-squares) properly detected.
+
+[Step 6] Saving test evidence inside work/R28-T002/...
