@@ -883,13 +883,92 @@ Use range() for loops.
 Solution
 ```python
 def printDict():
-	d=dict()
-	for i in range(1,21):
-		d[i]=i**2
-	print(d)
+    d = dict()
+    for i in range(1, 21):
+        d[i] = i**2
+    print(d)
 
 printDict()
 ```
+
+Output:
+```text
+{1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64, 9: 81, 10: 100, 11: 121, 12: 144, 13: 169, 14: 196, 15: 225, 16: 256, 17: 289, 18: 324, 19: 361, 20: 400}
+```
+
+Explanation:
+- **Empty dictionary creation**: `d = dict()` initializes a new, empty dictionary `d` to store the key-value mappings.
+- **How the `for` loop works**: `for i in range(1, 21):` iterates over integer values starting at `1` up to `20`. In Python, the `stop` argument of `range(start, stop)` is exclusive, so `21` marks the stopping boundary where iteration terminates.
+- **Storing squares with `d[i] = i**2`**: On each iteration `i`, `i**2` computes the square of `i` using Python's exponentiation operator `**`. The assignment `d[i] = i**2` binds the key `i` to its squared value.
+- **Why the dictionary contains 20 key-value pairs**: The sequence of keys generated is `1, 2, ..., 20`, producing exactly $21 - 1 = 20$ unique integers. Since each key is unique, exactly 20 distinct key-value pairs are created.
+- **First and last keys**:
+  - The first key inserted is `1` (for `i = 1`), with value `1**2 = 1`.
+  - The last key inserted is `20` (for `i = 20`), with value `20**2 = 400`.
+
+### Precise Invariant
+
+**After processing iteration `i`, the dictionary contains exactly the keys from 1 through `i`, and every key `k` maps to its square `k**2`.**
+
+We can trace this invariant across three key stages:
+
+1. **Before the loop:**
+   ```python
+   {}
+   ```
+   Initially, before iteration begins ($i = 0$), the dictionary is empty (`{}`). Vacuously, it contains no keys, satisfying the initial boundary condition.
+
+2. **After processing i = 3:**
+   ```python
+   {1: 1, 2: 4, 3: 9}
+   ```
+   After iterations `i = 1`, `i = 2`, and `i = 3`, the dictionary contains exactly the keys `1, 2, 3`, with values `1**2 = 1`, `2**2 = 4`, and `3**2 = 9`.
+
+3. **After the loop finishes:**
+   The dictionary contains keys `1` through `20`, and each key maps to its square:
+   ```python
+   {1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64, 9: 81, 10: 100, 11: 121, 12: 144, 13: 169, 14: 196, 15: 225, 16: 256, 17: 289, 18: 324, 19: 361, 20: 400}
+   ```
+
+Why the invariant holds:
+- Initially, the dictionary is empty.
+- Every iteration adds exactly one new key `i`.
+- The assigned value is the square of that key (`i**2`).
+- Previous entries remain unchanged because each key `i` is distinct.
+- Therefore, the invariant remains true after every iteration.
+
+### Smallest Boundary Case
+
+The original function has no input parameters, so we do not invent input arguments. The smallest valid loop-bound variation is:
+
+```python
+range(1, 1)
+```
+
+Expected dictionary:
+```python
+{}
+```
+
+The loop executes zero times because the start and stop values are equal (`start == stop`). Because the stop bound is non-inclusive, no integer satisfies $1 \le i < 1$. This is a boundary variation of the loop bounds, not a new input to the original function.
+
+### Bounded Variations
+
+We can verify how the invariant holds across different loop stopping values `m` using `range(1, m)`:
+
+- **`m = 1` (`range(1, 1)`)**: Empty case. Keys: none (0 entries) -> `{}`
+- **`m = 2` (`range(1, 2)`)**: Keys: `1` (1 entry) -> `{1: 1}`
+- **`m = 3` (`range(1, 3)`)**: Keys: `1, 2` (2 entries) -> `{1: 1, 2: 4}`
+- **`m = 5` (`range(1, 5)`)**: Keys: `1, 2, 3, 4` (4 entries) -> `{1: 1, 2: 4, 3: 9, 4: 16}`
+- **`m = 10` (`range(1, 10)`)**: Keys: `1` through `9` (9 entries) -> `{1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64, 9: 81}`
+- **`m = 20` (`range(1, 20)`)**: Keys: `1` through `19` (19 entries) -> `{1: 1, 2: 4, ..., 19: 361}`
+
+For each stopping value `m`:
+- The resulting keys are exactly `1` through `m - 1`.
+- Every value equals the square of its key (`d[k] == k**2`).
+- The dictionary contains exactly `m - 1` entries.
+- The empty case works when `m = 1` ($m - 1 = 0$ entries).
+- The invariant applies universally: at termination, all keys $1 \le k \le m - 1$ are mapped to $k^2$.
+
 
 ### Question 35
 Define a function which can generate a dictionary where the keys are numbers between 1 and 20 (both included) and the values are square of keys. The function should just print the values only.
