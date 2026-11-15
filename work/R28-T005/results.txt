@@ -1,0 +1,71 @@
+R28-T005 Question 50 Test Results
+==================================================
+
+1. Executed Example from Markdown:
+----------------------------------------
+class American(object):
+    @staticmethod
+    def printNationality():
+        print("America")
+
+anAmerican = American()
+anAmerican.printNationality()
+American.printNationality()
+----------------------------------------
+
+2. Expected Output:
+----------------------------------------
+America
+America
+----------------------------------------
+
+3. Actual Subprocess Output:
+----------------------------------------
+America
+America
+----------------------------------------
+
+4. Property Verifications:
+  - Output is exactly 2 lines matching 'America'
+  - anAmerican is an instance of American: YES
+  - printNationality is a @staticmethod: YES
+  - anAmerican.printNationality() prints 'America': YES
+  - American.printNationality() prints 'America': YES
+
+5. Deliberate Wrong-Result Test Status:
+  PASSED: All deliberate wrong-result tests triggered expected AssertionErrors.
+
+6. Execution Log:
+
+[Step 1] Extracting actual code from Question 50...
+Extracted code:
+----------------------------------------
+class American(object):
+    @staticmethod
+    def printNationality():
+        print("America")
+
+anAmerican = American()
+anAmerican.printNationality()
+American.printNationality()
+----------------------------------------
+
+[Step 2] Executing extracted code via Python subprocess...
+Subprocess stdout:
+America
+America
+
+[Step 3] Asserting output matches exactly two lines of 'America'...
+PASS: Output contains exactly two lines: 'America' and 'America'.
+
+[Step 4] Verifying class, staticmethod, and instance relationships...
+PASS: anAmerican is verified as an American instance.
+PASS: printNationality is confirmed as a staticmethod.
+PASS: Method executes successfully through both anAmerican.printNationality() and American.printNationality().
+
+[Step 5] Running deliberate wrong-result tests to prove checker error detection...
+PASS: PASSED: All deliberate wrong-result tests triggered expected AssertionErrors.
+
+[Step 6] Saving evidence files inside work/R28-T005/...
+
+Overall Status: ALL TESTS PASSED
