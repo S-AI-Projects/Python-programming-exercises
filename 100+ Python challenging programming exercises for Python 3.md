@@ -789,12 +789,14 @@ Hints:
 
 Use int() to convert a string to integer.
 
+The function should print the sum of the two integers, not join the strings: "3" and "4" print 7, not 34. int() also accepts a sign and surrounding spaces, so "-3" and " 4 " work, but it raises ValueError for text such as "3.5".
+
 Solution
 ```python
 def printValue(s1,s2):
     print(int(s1)+int(s2))
 
-printValue("3","4")
+printValue("3","4") #7
 ```
 
 ### Question 30

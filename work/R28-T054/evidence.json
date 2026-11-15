@@ -1,0 +1,72 @@
+{
+  "source": "100+ Python challenging programming exercises for Python 3.md",
+  "md_sha256": "e1c50869f6982ecbfe4e6964e26a9c15920fd7bf9c3ff910855c6e24f979d510",
+  "solution": "def printValue(s1,s2):\n    print(int(s1)+int(s2))\n\nprintValue(\"3\",\"4\") #7\n",
+  "cases": [
+    {
+      "input": "printValue(\"3\",\"4\") (published block, unchanged)",
+      "expected": "'7\\n'",
+      "actual": "'7\\n'"
+    },
+    {
+      "input": "printValue('0', '0')  # smallest supported input",
+      "expected": "'0\\n'",
+      "actual": "'0\\n'"
+    },
+    {
+      "input": "printValue('-3', '4')  # negative sign",
+      "expected": "'1\\n'",
+      "actual": "'1\\n'"
+    },
+    {
+      "input": "printValue('-5', '5')  # sum zero prints 0, not -0",
+      "expected": "'0\\n'",
+      "actual": "'0\\n'"
+    },
+    {
+      "input": "printValue('+5', '6')  # plus sign",
+      "expected": "'11\\n'",
+      "actual": "'11\\n'"
+    },
+    {
+      "input": "printValue('007', '3')  # leading zeros",
+      "expected": "'10\\n'",
+      "actual": "'10\\n'"
+    },
+    {
+      "input": "printValue(' 3 ', ' 4 ')  # surrounding spaces",
+      "expected": "'7\\n'",
+      "actual": "'7\\n'"
+    },
+    {
+      "input": "printValue('99999999999999999999', '1')  # beyond 64-bit, no overflow",
+      "expected": "'100000000000000000000\\n'",
+      "actual": "'100000000000000000000\\n'"
+    },
+    {
+      "input": "printValue('1_000', '1')  # underscore digit separator",
+      "expected": "'1001\\n'",
+      "actual": "'1001\\n'"
+    },
+    {
+      "input": "sweep a,b in {-9,-6,...,9} (49 pairs)",
+      "expected": "str(int(a)+int(b)) + newline",
+      "actual": "all equal"
+    },
+    {
+      "input": "printValue('3.5', '4')",
+      "expected": "non-zero exit, ValueError",
+      "actual": "exit 1: ValueError: invalid literal for int() with base 10: '3.5'"
+    },
+    {
+      "input": "printValue('', '1')",
+      "expected": "non-zero exit, ValueError",
+      "actual": "exit 1: ValueError: invalid literal for int() with base 10: ''"
+    }
+  ],
+  "tools": {
+    "python": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "platform": "macOS-26.5-arm64-arm-64bit-Mach-O",
+    "git": "git version 2.55.0"
+  }
+}

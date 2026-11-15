@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/Users/ronit786/s-ai-project/Python-programming-exercises/work/R28-T054/check.py", line 116, in <module>
+    main()
+    ~~~~^^
+  File "/Users/ronit786/s-ai-project/Python-programming-exercises/work/R28-T054/check.py", line 68, in main
+    assert_sum(out, "3", "4")
+    ~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/ronit786/s-ai-project/Python-programming-exercises/work/R28-T054/check.py", line 38, in assert_sum
+    assert out == expected_out(a, b), f"printValue({a!r}, {b!r}) printed {out!r}, expected {expected_out(a, b)!r}"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: printValue('3', '4') printed '7\n', expected '34\n'
