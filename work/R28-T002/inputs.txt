@@ -1,0 +1,17 @@
+[published_case]
+  description: Question 37 published solution execution (no input parameters)
+  function: printList()
+  loop_range: range(1, 21)
+  start: 1
+  stop: 21
+  step: 1
+  total_iterations: 20
+
+[boundary_case]
+  description: Smallest valid loop-bound variation (start == stop)
+  loop_range: range(1, 1)
+  start: 1
+  stop: 1
+  step: 1
+  total_iterations: 0
+
