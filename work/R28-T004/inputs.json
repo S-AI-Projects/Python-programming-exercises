@@ -1,0 +1,97 @@
+{
+  "published_case": {
+    "description": "Question 34 published solution execution (no input parameters)",
+    "function": "printDict()",
+    "loop_range": "range(1, 21)",
+    "start": 1,
+    "stop": 21,
+    "step": 1,
+    "total_iterations": 20
+  },
+  "boundary_case": {
+    "description": "Smallest valid loop-bound variation (start == stop)",
+    "loop_range": "range(1, 1)",
+    "start": 1,
+    "stop": 1,
+    "step": 1,
+    "total_iterations": 0
+  },
+  "bounded_variations": {
+    "m_1": {
+      "stopping_value_m": 1,
+      "loop_range": "range(1, 1)",
+      "expected_entry_count": 0,
+      "keys_generated": []
+    },
+    "m_2": {
+      "stopping_value_m": 2,
+      "loop_range": "range(1, 2)",
+      "expected_entry_count": 1,
+      "keys_generated": [
+        1
+      ]
+    },
+    "m_3": {
+      "stopping_value_m": 3,
+      "loop_range": "range(1, 3)",
+      "expected_entry_count": 2,
+      "keys_generated": [
+        1,
+        2
+      ]
+    },
+    "m_5": {
+      "stopping_value_m": 5,
+      "loop_range": "range(1, 5)",
+      "expected_entry_count": 4,
+      "keys_generated": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "m_10": {
+      "stopping_value_m": 10,
+      "loop_range": "range(1, 10)",
+      "expected_entry_count": 9,
+      "keys_generated": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    "m_20": {
+      "stopping_value_m": 20,
+      "loop_range": "range(1, 20)",
+      "expected_entry_count": 19,
+      "keys_generated": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ]
+    }
+  }
+}
