@@ -2069,19 +2069,94 @@ Use set() to store a number of values without duplicate.
 
 Solution:
 ```python
-def removeDuplicate( li ):
-    newli=[]
+def removeDuplicate(li):
+    newli = []
     seen = set()
+
     for item in li:
         if item not in seen:
-            seen.add( item )
+            seen.add(item)
             newli.append(item)
 
     return newli
 
-li=[12,24,35,24,88,120,155,88,120,155]
+li = [12, 24, 35, 24, 88, 120, 155, 88, 120, 155]
 print(removeDuplicate(li))
 ```
+
+Output:
+```text
+[12, 24, 35, 88, 120, 155]
+```
+
+Explanation:
+- **What `newli` stores**: `newli = []` initializes an empty list that accumulates elements in their first-seen order, forming the final deduplicated result list.
+- **Why the `seen` set is used**: A Python `set` is implemented as a hash table, providing $O(1)$ average-time complexity for membership checks (`item not in seen`) and insertions (`seen.add(item)`).
+- **How `seen` detects duplicate elements**: Each time a unique item is encountered, it is added to `seen`. On subsequent encounters of the same value, the condition `item not in seen` evaluates to `False`, immediately identifying the element as a duplicate.
+- **Why `newli` preserves original order**: Elements are appended to `newli` sequentially as they are encountered in the input list `li`. Because lists maintain insertion order, the relative ordering of first occurrences is preserved.
+- **Why duplicate elements are skipped**: When `item not in seen` evaluates to `False`, the `if` block is bypassed; neither `seen.add(item)` nor `newli.append(item)` is executed for that iteration.
+- **Why the first occurrence is retained**: When an element is seen for the very first time, it is not yet in `seen`, so the condition `item not in seen` is `True`. The element is added to `seen` and appended to `newli` before any duplicates can appear.
+
+### Alternative Method (List-Only Membership)
+
+An independently understandable alternative avoids using a set and checks membership directly against the output list:
+
+```python
+def removeDuplicateAlternative(li):
+    result = []
+
+    for item in li:
+        if item not in result:
+            result.append(item)
+
+    return result
+
+li = [12, 24, 35, 24, 88, 120, 155, 88, 120, 155]
+print(removeDuplicateAlternative(li))
+```
+
+Output:
+```text
+[12, 24, 35, 88, 120, 155]
+```
+
+Comparison between methods:
+- **Original method (`removeDuplicate`)**:
+  - Uses a set called `seen` for membership checking and a list called `newli` to preserve order.
+  - Set membership testing (`item not in seen`) runs in $O(1)$ average time, resulting in an overall time complexity of $O(n)$ for a list of $n$ elements.
+  - Set membership is generally faster for larger collections.
+- **Alternative method (`removeDuplicateAlternative`)**:
+  - Uses only a single result list (`result`).
+  - Checks whether an item already exists in that list (`item not in result`).
+  - Searching a list requires a linear scan ($O(k)$ where $k$ is the current length of `result`), yielding an overall time complexity of $O(n \times k)$ (up to $O(n^2)$ in the worst case).
+  - Easier to understand and uses less auxiliary memory, but can require significantly more comparisons on larger inputs.
+- **Result consistency**: Both methods return the exact same deduplicated list `[12, 24, 35, 88, 120, 155]` for the published example.
+
+Concrete Intermediate State:
+Consider processing the first four elements `[12, 24, 35, 24]`:
+1. Item `12`: Not in `seen` -> added to `seen` (`{12}`) and `newli` (`[12]`).
+2. Item `24`: Not in `seen` -> added to `seen` (`{12, 24}`) and `newli` (`[12, 24]`).
+3. Item `35`: Not in `seen` -> added to `seen` (`{12, 24, 35}`) and `newli` (`[12, 24, 35]`).
+4. Item `24` (second occurrence): At this point:
+   - `seen = {12, 24, 35}`
+   - `newli = [12, 24, 35]`
+   The check `24 not in seen` evaluates to `False` because `24` is already present in `seen`. Consequently, the `if` block is skipped, `24` is not appended to `newli`, and its first occurrence remains intact.
+
+### Smallest Supported Input (Empty List)
+
+The smallest supported input for both methods is an empty list:
+
+```python
+[]
+```
+
+Expected output:
+```python
+[]
+```
+
+When an empty list `[]` is passed to `removeDuplicate([])` or `removeDuplicateAlternative([])`, the `for item in li:` loop terminates immediately because there are zero items to iterate over. The loop body executes zero times, and both functions return the initialized empty list (`[]`).
+
 
 ### Question 95
 Define a class Person and its two child classes: Male and Female. All classes have a method "getGender" which can print "Male" for Male class and "Female" for Female class.

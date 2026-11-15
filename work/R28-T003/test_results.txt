@@ -1,0 +1,67 @@
+R28-T003 Question 94 Automated Test Results
+Python: 3.15.2
+Status: ALL TESTS PASSED
+Checks Verified:
+  1. Extracted code blocks from Markdown match Question 94 solutions
+  2. Subprocess execution for both methods succeeds with code 0
+  3. Both methods return exact published list [12, 24, 35, 88, 120, 155]
+  4. Both methods return [] for empty list input
+  5. Results are verified to be Python list instances
+  6. First-occurrence order is strictly preserved
+  7. Deliberate wrong-result tests verify checker error detection
+
+Execution Log:
+
+[Step 1] Extracting actual code blocks from Question 94...
+Extracted Original Solution (removeDuplicate):
+----------------------------------------
+def removeDuplicate(li):
+    newli = []
+    seen = set()
+
+    for item in li:
+        if item not in seen:
+            seen.add(item)
+            newli.append(item)
+
+    return newli
+
+li = [12, 24, 35, 24, 88, 120, 155, 88, 120, 155]
+print(removeDuplicate(li))
+----------------------------------------
+
+Extracted Alternative Solution (removeDuplicateAlternative):
+----------------------------------------
+def removeDuplicateAlternative(li):
+    result = []
+
+    for item in li:
+        if item not in result:
+            result.append(item)
+
+    return result
+
+li = [12, 24, 35, 24, 88, 120, 155, 88, 120, 155]
+print(removeDuplicateAlternative(li))
+----------------------------------------
+
+[Step 2] Executing extracted code blocks via Python subprocess...
+Original method subprocess stdout:    [12, 24, 35, 88, 120, 155]
+Alternative method subprocess stdout: [12, 24, 35, 88, 120, 155]
+
+[Step 3] Verifying subprocess outputs match published fixture...
+PASS: Both methods produce exact expected published string: [12, 24, 35, 88, 120, 155]
+
+[Step 4] In-memory verification of extracted functions...
+Testing published fixture: [12, 24, 35, 24, 88, 120, 155, 88, 120, 155]
+PASS: Both methods returned: [12, 24, 35, 88, 120, 155]
+PASS: Result is Python list and preserves first-occurrence order.
+
+[Step 5] Testing smallest supported input: []...
+PASS: Both methods return [] for empty list input.
+PASS: Empty list results are Python lists.
+
+[Step 6] Running deliberate wrong-result tests...
+PASS: Checker properly detected all simulated wrong results.
+
+[Step 7] Saving test evidence inside work/R28-T003/...
