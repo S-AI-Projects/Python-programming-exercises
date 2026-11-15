@@ -947,13 +947,42 @@ Use list.append() to add values into a list.
 Solution
 ```python
 def printList():
-	li=list()
-	for i in range(1,21):
-		li.append(i**2)
-	print(li)
+    li = list()
+    for i in range(1, 21):
+        li.append(i**2)
+    print(li)
 
 printList()
 ```
+
+Output:
+```
+[1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225, 256, 289, 324, 361, 400]
+```
+
+Explanation:
+- **Empty List Creation**: `li = list()` initializes a new, empty list object `li` to store the computed squares.
+- **Number Generation with `range(1, 21)`**: The `range(start, stop)` function generates a sequence of integers starting at `1` up to, but not including, `21`.
+- **Why 21 is Excluded**: In Python, the `stop` argument in `range()` is non-inclusive (half-open interval `[start, stop)`). Therefore, `21` acts as the boundary where iteration halts, yielding integers from `1` to `20`.
+- **Why the Final List Contains 20 Elements**: The integers generated are `1, 2, 3, ..., 20`, representing exactly 20 distinct integer steps (`21 - 1 = 20`), so the loop iterates exactly 20 times and appends 20 elements to the list.
+- **Square Calculation**: In each iteration `i`, `i**2` uses Python's exponentiation operator `**` to calculate the square of `i` ($i^2$).
+- **Adding Elements with `append()`**: `li.append(i**2)` adds each computed square to the end of list `li` in sequential order.
+- **First and Last Elements**:
+  - The first value appended corresponds to `i = 1`, which is `1**2 = 1`.
+  - The last value appended corresponds to `i = 20`, which is `20**2 = 400`.
+
+Boundary Example:
+The smallest valid loop-bound variation for this pattern is:
+```python
+range(1, 1)
+```
+Expected result:
+```python
+[]
+```
+When `range(1, 1)` is used, the loop executes zero times because the starting value equals the stopping value (`start == stop`). Since the stop value is exclusive, no integers satisfy 1 <= i < 1, so the loop body never executes and the list remains empty (`[]`).
+
+
 ### Question 38
 Define a function which can generate a list where the values are square of numbers between 1 and 20 (both included). Then the function needs to print the first 5 elements in the list.
 
