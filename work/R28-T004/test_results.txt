@@ -1,0 +1,66 @@
+R28-T004 Question 34 Automated Test Results
+Python: 3.15.2
+Status: ALL TESTS PASSED
+Checks Verified:
+  1. Extracted code matches Question 34 published solution
+  2. Subprocess execution succeeds without errors
+  3. Exact published dictionary output matches expected string
+  4. Full invariant holds: exactly 20 keys, each mapping to key**2
+  5. Traced invariant across stages: before loop {}, after i=3, after i=20
+  6. All six bounded variations (m in [1, 2, 3, 5, 10, 20]) tested
+  7. Empty dictionary boundary case (range(1, 1) -> {}) verified
+  8. Deliberate broken-invariant checks verify checker error detection
+
+Execution Log:
+
+[Step 1] Extracting actual code from Question 34...
+Extracted solution code:
+----------------------------------------
+def printDict():
+    d = dict()
+    for i in range(1, 21):
+        d[i] = i**2
+    print(d)
+
+printDict()
+----------------------------------------
+
+[Step 2] Executing extracted code via Python subprocess...
+Subprocess stdout: {1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64, 9: 81, 10: 100, 11: 121, 12: 144, 13: 169, 14: 196, 15: 225, 16: 256, 17: 289, 18: 324, 19: 361, 20: 400}
+
+[Step 3] Verifying published dictionary output and invariant...
+PASS: Exact string output matches expected published dictionary formatting.
+PASS: Full invariant verified: contains keys 1 through 20, each mapping to its square.
+
+[Step 4] Tracing step-by-step invariant stages...
+PASS: Invariant stage 1 (Before loop): dictionary is empty {}
+PASS: Invariant stage 2 (After i = 3): {1: 1, 2: 4, 3: 9}
+PASS: Invariant stage 3 (After loop finishes): invariant held after every single iteration.
+
+[Step 5] Testing bounded variations for stopping values m in [1, 2, 3, 5, 10, 20]...
+
+Testing stopping value m = 1 (range(1, 1))...
+PASS: m = 1 produced 0 entries: {}
+
+Testing stopping value m = 2 (range(1, 2))...
+PASS: m = 2 produced 1 entries: {1: 1}
+
+Testing stopping value m = 3 (range(1, 3))...
+PASS: m = 3 produced 2 entries: {1: 1, 2: 4}
+
+Testing stopping value m = 5 (range(1, 5))...
+PASS: m = 5 produced 4 entries: {1: 1, 2: 4, 3: 9, 4: 16}
+
+Testing stopping value m = 10 (range(1, 10))...
+PASS: m = 10 produced 9 entries: {1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64, 9: 81}
+
+Testing stopping value m = 20 (range(1, 20))...
+PASS: m = 20 produced 19 entries: {1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64, 9: 81, 10: 100, 11: 121, 12: 144, 13: 169, 14: 196, 15: 225, 16: 256, 17: 289, 18: 324, 19: 361}
+
+[Step 6] Verifying empty dictionary boundary case (m = 1)...
+PASS: Boundary case range(1, 1) cleanly produces empty dictionary {} because start == stop.
+
+[Step 7] Running deliberate incorrect-result tests to prove error detection...
+PASS: Checker properly detected all deliberate broken invariants.
+
+[Step 8] Saving test evidence inside work/R28-T004/...
