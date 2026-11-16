@@ -425,6 +425,29 @@ numbers = [x for x in values.split(",") if int(x)%2!=0]
 print(",".join(numbers))
 ```
 
+Output:
+```text
+1,3,5,7,9
+```
+
+Derivation for the published input `1,2,3,4,5,6,7,8,9`:
+1. `values` is the input string `"1,2,3,4,5,6,7,8,9"`.
+2. `values.split(",")` produces the string tokens `["1", "2", "3", "4", "5", "6", "7", "8", "9"]`.
+3. The list-comprehension condition converts each token with `int(x)` and keeps only odd values, producing `["1", "3", "5", "7", "9"]`.
+4. `",".join(numbers)` combines those retained strings into `"1,3,5,7,9"`, which is printed.
+
+The published code filters odd-number tokens; it does not square them. That behavior is what produces the published output above, even though the question wording mentions squaring.
+
+Smallest supported input:
+```text
+1
+```
+
+The split result is `["1"]`, the odd-token result is `["1"]`, and the printed output is:
+```text
+1
+```
+
 ### Question 17
 Level 2
 

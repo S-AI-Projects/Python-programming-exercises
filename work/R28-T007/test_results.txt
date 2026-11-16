@@ -1,0 +1,3 @@
+R28-T007 PASS
+Executed the exact Question 16 solution from Markdown.
+Verified the published derivation, smallest input, and oddness mutant.
