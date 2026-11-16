@@ -1,0 +1,3 @@
+published: [4, 16, 36, 64, 100]
+smallest: [4]
+mutant: [1, 9, 25, 49, 81]
