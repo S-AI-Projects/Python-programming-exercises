@@ -1,0 +1,3 @@
+published: bag,hello,without,world
+smallest: a
+limitation: 1,10,2
