@@ -1,0 +1,17 @@
+{
+  "published_list": [
+    12,
+    24,
+    35,
+    70,
+    88,
+    120,
+    155
+  ],
+  "removed_indexes": [
+    0,
+    4,
+    5
+  ],
+  "smallest_collection": []
+}
