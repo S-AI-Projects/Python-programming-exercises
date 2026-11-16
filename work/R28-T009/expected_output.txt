@@ -1,0 +1,3 @@
+published: [24, 35, 70, 155]
+experiment: [24, 35, 70, 155] / [12, 24, 35, 70, 88, 120, 155] / False
+empty experiment: [] / [] / False

@@ -1973,6 +1973,35 @@ li = [x for (i,x) in enumerate(li) if i not in (0,4,5)]
 print(li)
 ```
 
+Output:
+```text
+[24, 35, 70, 155]
+```
+
+Resource behavior:
+- `enumerate(li)` produces an iterator of `(index, value)` pairs over the original list; it does not create a second copy of every element before the comprehension runs.
+- The list comprehension does create a new list containing the retained values. For `n` input elements, it performs one pass (`O(n)` time) and stores up to `n` output elements (`O(n)` additional space).
+- The second assignment rebinds the name `li` to that new list. It does not mutate the original list object. A small experiment makes that distinction visible:
+
+```python
+source = [12,24,35,70,88,120,155]
+filtered = [x for (i,x) in enumerate(source) if i not in (0,4,5)]
+print(filtered)
+print(source)
+print(filtered is source)
+```
+
+The experiment prints the filtered values, then the unchanged source list, then `False`, confirming that the result is a new list rather than a view of the source.
+
+Smallest supported collection:
+```python
+li = []
+li = [x for (i,x) in enumerate(li) if i not in (0,4,5)]
+print(li)
+```
+
+This zero-element case prints `[]` and performs no iterations.
+
 ### Question 92
 By using list comprehension, please write a program to print the list after removing the value 24 in [12,24,35,24,88,120,155].
 
