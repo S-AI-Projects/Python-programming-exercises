@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "solution": "def printValue(n):\n    value_as_string = str(n)\n    print(value_as_string)\n\nprintValue(3)",
+  "published_output": "3",
+  "smallest_input": 0,
+  "smallest_output": "0",
+  "mutant_detected": true,
+  "python": "3.15.2 (main, Oct 25 2026, 16:57:51) [Clang 21.0.0 (clang-2100.3.34.2)]",
+  "platform": "macOS-27.2.1-arm64-arm-64bit-Mach-O"
+}

@@ -777,9 +777,30 @@ Use str() to convert a number to string.
 Solution
 ```python
 def printValue(n):
-    print(str(n))
+    value_as_string = str(n)
+    print(value_as_string)
 
 printValue(3)
+```
+
+Output:
+```text
+3
+```
+
+Explanation:
+- **Convert before printing**: `str(n)` creates a new string value; it does not change the original integer `n`.
+- **Intermediate value**: for the published call `printValue(3)`, `n` is the integer `3` and `value_as_string` is the string `"3"`.
+- **Print the converted value**: `print(value_as_string)` writes the string to the console, so the displayed text is `3`.
+
+Smallest supported input:
+```python
+printValue(0)
+```
+
+The intermediate value is the string `"0"`, and the output is:
+```text
+0
 ```
 
 ### Question 29
