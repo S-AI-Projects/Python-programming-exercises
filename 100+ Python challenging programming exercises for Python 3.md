@@ -1127,8 +1127,27 @@ Solution
 ```python
 li = [1,2,3,4,5,6,7,8,9,10]
 evenNumbers = map(lambda x: x**2, filter(lambda x: x%2==0, li))
-print(evenNumbers)
+print(list(evenNumbers))
 ```
+
+Output:
+```text
+[4, 16, 36, 64, 100]
+```
+
+Explanation:
+- `filter(lambda x: x%2==0, li)` keeps the even values `[2, 4, 6, 8, 10]`.
+- `map(lambda x: x**2, ...)` applies the square operation to those values, producing a lazy `map` iterator.
+- `list(evenNumbers)` materializes that iterator so the example prints the values rather than Python 3's iterator representation, whose memory address is not stable.
+
+Smallest supported input:
+```python
+li = [2]
+evenNumbers = map(lambda x: x**2, filter(lambda x: x%2==0, li))
+print(list(evenNumbers))
+```
+
+The one-element input produces `[4]`.
 ### Question 48
 Write a program which can filter() to make a list whose elements are even number between 1 and 20 (both included).
 
