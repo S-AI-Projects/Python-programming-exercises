@@ -226,6 +226,26 @@ items.sort()
 print(','.join(items))
 ```
 
+Output:
+```text
+bag,hello,without,world
+```
+
+Limitation and source contract:
+- The program treats each comma-separated token as text because it never converts a token with `int()` or another numeric parser.
+- Therefore, numeric-looking tokens are sorted lexicographically, character by character, rather than by numeric value. For example, the input `10,2,1` produces `1,10,2`, not `1,2,10`.
+- Empty tokens are also accepted as text. The source contract is a comma-separated sequence of words, so callers that need numeric ordering or validation must perform that work before using this example.
+
+Smallest supported input:
+```text
+a
+```
+
+The list contains one word, so sorting leaves it unchanged and the output is:
+```text
+a
+```
+
 ### Question 9
 Level 2
 

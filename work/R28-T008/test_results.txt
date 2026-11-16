@@ -1,0 +1,3 @@
+R28-T008 PASS
+Executed the exact Question 8 solution from Markdown.
+Verified the published output, smallest input, lexical-order limitation, and mutant detection.
