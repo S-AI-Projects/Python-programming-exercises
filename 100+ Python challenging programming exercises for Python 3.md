@@ -42,6 +42,17 @@ for i in range(2000, 3201):
 print(','.join(l))
 ```
 
+Alternative solution:
+```python
+print(','.join(str(i) for i in range(2002, 3200, 7) if i % 5 != 0))
+```
+
+Explanation:
+- The source solution tests all 1201 integers in 2000..3200 for divisibility by 7, while the alternative generates only the 172 multiples of 7 (2002, 2009, ..., 3199) using a step of 7 and tests only those for divisibility by 5.
+- The 34 multiples of 35 among them (2030, ..., 3185) are dropped by the filter, leaving 138 matching numbers.
+- The source builds a list of strings with append, while the alternative produces the strings with a generator expression passed to join.
+- The resulting output from both solutions is identical.
+
 ### Question 2
 Level 1
 
