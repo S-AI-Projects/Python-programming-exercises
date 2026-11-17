@@ -1,0 +1,6 @@
+Return code: 1
+Stdout:
+
+Stderr:
+AssertionError: Expected 25 keys printed, got 20
+

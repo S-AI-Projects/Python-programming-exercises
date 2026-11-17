@@ -1,0 +1,7 @@
+=== Published Question 36 Verification ===
+Keys count:           20
+Matches expected:     True
+
+=== Smallest Supported Range Verification ===
+Smallest actual repr: '1'
+Matches expected:     True
