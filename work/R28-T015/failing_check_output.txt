@@ -1,0 +1,8 @@
+Return code: 1
+Stdout:
+
+Stderr:
+AssertionError: Published example output mismatch!
+  Expected: '9999\n'
+  Actual:   '500\n'
+

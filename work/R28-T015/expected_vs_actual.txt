@@ -1,0 +1,17 @@
+=== Published Example ===
+Input:         '5\n'
+Expected:      '500\n'
+Actual:        '500\n'
+Numeric Value: 500
+Match:         True
+
+=== Smallest Supported Input (n = 1) ===
+Input:         '1\n'
+Expected:      '100\n'
+Actual:        '100\n'
+Numeric Value: 100
+Match:         True
+
+=== Reproducibility & State Independence ===
+Deterministic: Yes (pure recursion on n)
+Hidden State:  None (no global state, side-effects, or random seeds)

@@ -1486,6 +1486,14 @@ Then, the output of the program should be:
 
 500
 
+Suppose the smallest supported input is given as input to the program:
+
+1
+
+Then, the output of the program should be:
+
+100
+
 In case of input data being supplied to the question, it should be assumed to be a console input.
 
 Hints:
@@ -1502,6 +1510,10 @@ def f(n):
 n=int(input())
 print(f(n))
 ```
+
+Explanation:
+The recursive function `f(n)` implements the recurrence relation where each recursive step decrements `n` by 1 and adds 100, terminating at base case `f(0) = 0`. For the smallest supported input `n = 1` ($n > 0$), the function makes a single recursive call `f(0) = 0` and adds 100, returning `100`. For the published example `n = 5`, the recursion unwinds across 5 steps ($f(5) = 100 + 100 + 100 + 100 + 100 + 0$), producing `500`. The function is purely deterministic with no hidden state, external dependencies, or side effects.
+
 
 ### Question 66
 The Fibonacci Sequence is computed based on the following formula:
