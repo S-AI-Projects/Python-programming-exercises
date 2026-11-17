@@ -1,0 +1,11 @@
+=== Published Example ===
+Input:    'H1e2l3l4o5w6o7r8l9d\n'
+Expected: 'Helloworld\n'
+Actual:   'Helloworld\n'
+Match:    True
+
+=== Smallest Supported Input ===
+Input:    'a\n'
+Expected: 'a\n'
+Actual:   'a\n'
+Match:    True
