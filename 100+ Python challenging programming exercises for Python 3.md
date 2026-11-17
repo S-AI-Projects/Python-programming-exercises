@@ -849,8 +849,10 @@ def checkValue(n):
         print("It is an even number")
     else:
         print("It is an odd number")
-        
+
 checkValue(7)
+checkValue(0)
+```
 
 ### Question 33
 Define a function which can print a dictionary where the keys are numbers between 1 and 3 (both included) and the values are square of keys.

@@ -1,0 +1,44 @@
+{
+  "task": "R28-T011",
+  "student": "Parag Sanghavi",
+  "enrollment": "e26b07f0685",
+  "question": "Question 32",
+  "tool_versions": {
+    "python_version": "3.14.7 (v3.14.7:823f0323ee6, Aug  5 2026, 07:07:01) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "platform": "macOS-27.2-arm64-arm-64bit-Mach-O",
+    "os": "Darwin",
+    "git_branch": "student/e26b07f0685/R28-T011",
+    "git_commit": "1aae93a67e64220f1b039e13822e48a18b372cf7"
+  },
+  "inputs": [
+    {
+      "input": 7,
+      "description": "Exact published example (odd integer)",
+      "intermediate_state": "7 % 2 == 0 evaluates to False -> branches to else",
+      "expected": "It is an odd number"
+    },
+    {
+      "input": 0,
+      "description": "Smallest supported non-negative integer input (even integer)",
+      "intermediate_state": "0 % 2 == 0 evaluates to True -> branches to if",
+      "expected": "It is an even number"
+    }
+  ],
+  "results": [
+    {
+      "input": 7,
+      "intermediate": "7 % 2 == 0 evaluates to False",
+      "expected": "It is an odd number",
+      "actual": "It is an odd number",
+      "status": "PASS"
+    },
+    {
+      "input": 0,
+      "intermediate": "0 % 2 == 0 evaluates to True",
+      "expected": "It is an even number",
+      "actual": "It is an even number",
+      "status": "PASS"
+    }
+  ],
+  "status": "ALL_CHECKS_PASSED"
+}

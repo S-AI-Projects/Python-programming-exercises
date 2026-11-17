@@ -1,0 +1,4 @@
+Input      | Intermediate    | Expected Output           | Actual Output             | Status
+------------------------------------------------------------------------------------------
+7          | 7 % 2 == 0 evaluates to False | It is an odd number       | It is an odd number       | PASS
+0          | 0 % 2 == 0 evaluates to True | It is an even number      | It is an even number      | PASS

@@ -1,0 +1,8 @@
+Input: 7
+Description: Exact published example (odd integer)
+Intermediate State (n % 2 == 0): 7 % 2 == 0 evaluates to False -> branches to else
+----------------------------------------
+Input: 0
+Description: Smallest supported non-negative integer input (even integer)
+Intermediate State (n % 2 == 0): 0 % 2 == 0 evaluates to True -> branches to if
+----------------------------------------

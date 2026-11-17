@@ -1,0 +1,5 @@
+Python Version: 3.14.7 (v3.14.7:823f0323ee6, Aug  5 2026, 07:07:01) [Clang 21.0.0 (clang-2100.1.1.101)]
+Platform: macOS-27.2-arm64-arm-64bit-Mach-O
+OS: Darwin
+Git Branch: student/e26b07f0685/R28-T011
+Git Commit: 1aae93a67e64220f1b039e13822e48a18b372cf7
