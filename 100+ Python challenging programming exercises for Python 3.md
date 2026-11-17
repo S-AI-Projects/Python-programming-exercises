@@ -2114,15 +2114,37 @@ Then, the output of the program should be:
 
 Helloworld
 
+Smallest supported input:
+If the following string is given as input to the program:
+
+a
+
+Then, the output of the program should be:
+
+a
+
 Hints:
-Use list[::2] to iterate a list by step 2.
+Use s[::2] to iterate a string by step 2.
 
 Solution:
 ```python
-s=raw_input()
+s = input()
 s = s[::2]
 print(s)
 ```
+
+Output:
+```text
+Helloworld
+```
+
+Explanation:
+For input string `s = "H1e2l3l4o5w6o7r8l9d"`, slice `s[::2]` starts at index 0 and selects every second character:
+- Even indices selected: 0 ('H'), 2 ('e'), 4 ('l'), 6 ('l'), 8 ('o'), 10 ('w'), 12 ('o'), 14 ('r'), 16 ('l'), 18 ('d')
+- Intermediate sequence: `['H', 'e', 'l', 'l', 'o', 'w', 'o', 'r', 'l', 'd']`
+- Resulting string: `"Helloworld"`
+
+For the smallest supported single-character input `s = "a"`, index 0 is selected, producing `"a"`.
 
 ### Question 99
 Please write a program which prints all permutations of [1,2,3]
