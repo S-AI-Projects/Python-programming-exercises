@@ -1333,6 +1333,15 @@ Then, the output of the program should be:
 
 john
 
+Smallest supported input:
+If the following email address is given as input to the program:
+
+a@b.com
+
+Then, the output of the program should be:
+
+a
+
 In case of input data being supplied to the question, it should be assumed to be a console input.
 
 Hints:
@@ -1342,11 +1351,22 @@ Use \w to match letters.
 Solution:
 ```python
 import re
-emailAddress = raw_input()
-pat2 = "(\w+)@((\w+\.)+(com))"
+emailAddress = input()
+pat2 = r"(\w+)@((\w+\.)+(com))"
 r2 = re.match(pat2,emailAddress)
 print(r2.group(1))
 ```
+
+Explanation:
+The regular expression `r"(\w+)@((\w+\.)+(com))"` defines four capture groups:
+- Group 1: `(\w+)` matches one or more word characters preceding `@` (the username, e.g. `'john'`).
+- Group 2: `((\w+\.)+(com))` matches the entire domain portion after `@` (e.g. `'google.com'`).
+- Group 3: `(\w+\.)` matches the last repeated subdomain token before the top-level domain (e.g. `'google.'`).
+- Group 4: `(com)` matches the literal top-level domain string `'com'`.
+
+When matching `"john@google.com"`, `r2.groups()` evaluates to `('john', 'google.com', 'google.', 'com')`, and `r2.group(1)` extracts `'john'`.
+
+For the smallest supported input `"a@b.com"`, `r2.group(1)` extracts `'a'`.
 
 ### Question 59
 Assuming that we have some email addresses in the "username@companyname.com" format, please write program to print the company name of a given email address. Both user names and company names are composed of letters only.

@@ -1,0 +1,8 @@
+Return code: 1
+Stdout:
+
+Stderr:
+AssertionError: Published output mismatch!
+  Expected: 'WRONG_OUTPUT\n'
+  Actual:   'john\n'
+

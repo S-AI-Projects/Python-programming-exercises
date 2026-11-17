@@ -1,0 +1,16 @@
+=== Published Example Verification ===
+Input:                    'john@google.com\n'
+Expected Output:          'john\n'
+Actual Output:            'john\n'
+Matches Expected:         True
+Intermediate match groups: ('john', 'google.com', 'google.', 'com')
+Group 1 (username):       'john'
+Group 2 (domain):         'google.com'
+Group 3 (subdomain token): 'google.'
+Group 4 (TLD 'com'):      'com'
+
+=== Smallest Supported Input Verification ===
+Input:                    'a@b.com\n'
+Expected Output:          'a\n'
+Actual Output:            'a\n'
+Matches Expected:         True
