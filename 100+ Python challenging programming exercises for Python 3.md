@@ -1986,6 +1986,31 @@ li = [x for x in li if x!=24]
 print(li)
 ```
 
+**Implementation clarification:**
+
+The list comprehension `[x for x in li if x!=24]` filters the list by iterating over every element `x` and keeping only those where `x != 24`. Unlike `list.remove()` which removes only the *first* occurrence, the comprehension removes *all* occurrences in a single pass.
+
+Intermediate step-by-step trace for `[12, 24, 35, 24, 88, 120, 155]`:
+
+| Element | Condition `x != 24` | Kept? |
+|---------|---------------------|-------|
+| 12      | True                | yes   |
+| 24      | False               | no    |
+| 35      | True                | yes   |
+| 24      | False               | no    |
+| 88      | True                | yes   |
+| 120     | True                | yes   |
+| 155     | True                | yes   |
+
+Result: `[12, 35, 88, 120, 155]`
+
+**Smallest supported input (single-element list containing the value to remove):**
+```python
+li_min = [24]
+li_min = [x for x in li_min if x != 24]
+print(li_min)  # []
+```
+
 ### Question 93
 With two given lists [1,3,6,78,35,55] and [12,24,35,24,88,120,155], write a program to make a list whose elements are intersection of the above given lists.
 

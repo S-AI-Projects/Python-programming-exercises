@@ -1,0 +1,9 @@
+{
+  "question": 92,
+  "task": "R28-T016",
+  "description": "Remove value 24 from list using list comprehension",
+  "inputs": {
+    "main_example": "[12,24,35,24,88,120,155]",
+    "boundary_example": "[24]"
+  }
+}
