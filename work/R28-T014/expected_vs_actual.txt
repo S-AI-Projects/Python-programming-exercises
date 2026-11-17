@@ -1,0 +1,20 @@
+=== Published Example Execution ===
+Function Call:        printList()
+Expected Output:      '[1, 4, 9, 16, 25]\n'
+Actual Output:        '[1, 4, 9, 16, 25]\n'
+Match:                True
+
+=== Smallest Boundary Case (range(1, 1)) ===
+Loop Bound:           range(1, 1) (0 iterations)
+Expected List:        []
+Expected Slice [:5]:  []
+Actual Slice:         []
+Match:                True
+
+=== Invariant Bounded Variations ===
+Bound m=1  | Range: range(1, 1)    | Total Elements: 0  | Slice [:5]: []
+Bound m=2  | Range: range(1, 2)    | Total Elements: 1  | Slice [:5]: [1]
+Bound m=3  | Range: range(1, 3)    | Total Elements: 2  | Slice [:5]: [1, 4]
+Bound m=6  | Range: range(1, 6)    | Total Elements: 5  | Slice [:5]: [1, 4, 9, 16, 25]
+Bound m=10 | Range: range(1, 10)   | Total Elements: 9  | Slice [:5]: [1, 4, 9, 16, 25]
+Bound m=21 | Range: range(1, 21)   | Total Elements: 20 | Slice [:5]: [1, 4, 9, 16, 25]

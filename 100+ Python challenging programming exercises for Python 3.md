@@ -975,6 +975,55 @@ def printList():
 printList()
 ```
 
+Output:
+```text
+[1, 4, 9, 16, 25]
+```
+
+Explanation:
+- **List initialization**: `li = list()` initializes an empty list `li` before iteration begins.
+- **Range iteration**: `for i in range(1, 21):` iterates through integers from `1` through `20` inclusive (stopping before `21`).
+- **Appending squares**: On each iteration `i`, `li.append(i**2)` computes $i^2$ and appends it to the list.
+- **List slicing**: `li[:5]` slices elements from index `0` up to (exclusive) index `5`, returning the first 5 elements `[1, 4, 9, 16, 25]`.
+
+### Precise Invariant
+
+**After processing iteration `i` (where $1 \le i \le 20$), `li` contains exactly `i` elements where each element at index `k` equals $(k+1)^2$ for all $0 \le k < i$. Slicing `li[:5]` yields the first $\min(i, 5)$ squared numbers.**
+
+We can trace this invariant across key stages:
+
+1. **Before the loop:**
+   `li` is empty: `[]` (length 0). Slicing `li[:5]` yields `[]`.
+2. **After processing $i = 3$:**
+   `li` contains `[1, 4, 9]` (length 3). Slicing `li[:5]` yields `[1, 4, 9]`.
+3. **After processing $i = 5$:**
+   `li` contains `[1, 4, 9, 16, 25]` (length 5). Slicing `li[:5]` yields `[1, 4, 9, 16, 25]`.
+4. **After the loop finishes ($i = 20$):**
+   `li` contains all 20 squares from $1^2 = 1$ to $20^2 = 400$. Slicing `li[:5]` yields `[1, 4, 9, 16, 25]`.
+
+### Smallest Boundary Case
+
+The function takes no console input or arguments, so no input is invented. The smallest valid loop-bound variation is:
+```python
+range(1, 1)
+```
+Expected output:
+```python
+[]
+```
+Because start equals stop (`1 == 1`), zero iterations execute, keeping `li` empty (`[]`). Slicing an empty list `li[:5]` produces `[]`.
+
+### Bounded Variations
+
+Testing the invariant across five bounded loop upper limits $m$ in `range(1, m)`:
+- **`m = 1` (`range(1, 1)`)**: 0 elements -> `li = []`, `li[:5] = []`
+- **`m = 2` (`range(1, 2)`)**: 1 element -> `li = [1]`, `li[:5] = [1]`
+- **`m = 3` (`range(1, 3)`)**: 2 elements -> `li = [1, 4]`, `li[:5] = [1, 4]`
+- **`m = 6` (`range(1, 6)`)**: 5 elements -> `li = [1, 4, 9, 16, 25]`, `li[:5] = [1, 4, 9, 16, 25]`
+- **`m = 10` (`range(1, 10)`)**: 9 elements -> `li = [1, 4, 9, 16, 25, 36, 49, 64, 81]`, `li[:5] = [1, 4, 9, 16, 25]`
+- **`m = 21` (`range(1, 21)`)**: 20 elements -> published fixture, `li[:5] = [1, 4, 9, 16, 25]`
+
+
 ### Question 39
 Define a function which can generate a list where the values are square of numbers between 1 and 20 (both included). Then the function needs to print the last 5 elements in the list.
 
