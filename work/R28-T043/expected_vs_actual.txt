@@ -1,0 +1,20 @@
+=== Mathematical Fixture Verification ===
+Multiples of 7 in [2002, 3199] (step 7): 172
+Multiples of 35 dropped (divisible by 5): 34
+Retained matching numbers:                138
+First matching number:                    2002
+Last matching number:                     3199
+
+=== Source Solution Output ===
+Expected (first 50 chars): '2002,2009,2016,2023,2037,2044,2051,2058,2072,2079,'...
+Actual   (first 50 chars): '2002,2009,2016,2023,2037,2044,2051,2058,2072,2079,'...
+Exact Length:             690
+Matches Expected:         True
+
+=== Alternative Solution Output ===
+Actual   (first 50 chars): '2002,2009,2016,2023,2037,2044,2051,2058,2072,2079,'...
+Exact Length:             690
+Matches Expected:         True
+
+=== Source vs Alternative Equivalence ===
+Identical Output:         True
