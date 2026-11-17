@@ -1,0 +1,18 @@
+=== Published Example Verification ===
+Input:                john@google.com
+Expected output:      'google'
+Actual output:        'google'
+Matches:              True
+Capture groups:       ('john', 'google', 'com')
+
+=== Resource & String Behavior Verification ===
+m.string is emailAddress:                     True
+m.group(2) == emailAddress[start:end]:        True
+m.group(2) is not emailAddress:               True
+re.match('b','ab') is None vs re.search:      True
+
+=== Smallest Supported Input Verification ===
+Input:                a@b.com
+Expected output:      'b'
+Actual output:        'b'
+Matches:              True

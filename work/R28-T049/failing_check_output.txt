@@ -1,0 +1,6 @@
+Return code: 1
+Stdout:
+
+Stderr:
+AssertionError: Expected output 'wrong_company\n', got 'google\n'
+
