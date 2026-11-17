@@ -1,0 +1,8 @@
+Return code: 1
+Stdout:
+
+Stderr:
+AssertionError: Source published output mismatch!
+  Expected: 'WRONG_OUTPUT\n'
+  Actual:   '500\n'
+

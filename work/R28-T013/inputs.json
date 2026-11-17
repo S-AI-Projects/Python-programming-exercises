@@ -1,0 +1,4 @@
+{
+  "published_input": "D 300\nD 300\nW 200\nD 100\n\n",
+  "smallest_supported_input": "D 100\n\n"
+}

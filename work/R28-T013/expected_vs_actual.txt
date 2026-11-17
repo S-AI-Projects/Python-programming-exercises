@@ -1,0 +1,17 @@
+=== Published Example ===
+Input:                'D 300\nD 300\nW 200\nD 100\n\n'
+Expected Output:      '500\n'
+Source Output:        '500\n'
+Alternative Output:   '500\n'
+Source Matches:       True
+Alternative Matches:  True
+Methods Equivalent:   True
+
+=== Smallest Supported Input ===
+Input:                'D 100\n\n'
+Expected Output:      '100\n'
+Source Output:        '100\n'
+Alternative Output:   '100\n'
+Source Matches:       True
+Alternative Matches:  True
+Methods Equivalent:   True

@@ -442,6 +442,11 @@ D 100
 Then, the output should be:
 500
 
+Suppose the smallest supported input is supplied to the program:
+D 100
+Then, the output should be:
+100
+
 Hints:
 In case of input data being supplied to the question, it should be assumed to be a console input.
 
@@ -464,6 +469,24 @@ while True:
         pass
 print(netAmount)
 ```
+
+Alternative solution:
+```python
+lines = []
+while True:
+    s = input()
+    if not s:
+        break
+    lines.append(s.split())
+
+print(sum(int(val) if op == "D" else -int(val) for op, val in lines))
+```
+
+Explanation:
+- The source method updates an integer accumulator `netAmount` step by step using imperative `if/elif` branching, consuming constant O(1) auxiliary memory per transaction.
+- The alternative method stages transaction lines into an intermediate list of `[operation, amount]` tokens, then computes the net balance functionally using a generator expression and `sum()`, mapping 'D' to positive values and 'W' to negative values.
+- Both methods perform equivalent arithmetic resulting in identical final values and printed representations across all valid transaction fixtures.
+
 
 ### Question 18
 Level 3
