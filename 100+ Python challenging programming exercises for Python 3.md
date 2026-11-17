@@ -1797,6 +1797,18 @@ import random
 print(random.sample(range(100), 5))
 ```
 
+Explanation:
+The question text asks for numbers between 100 and 200 inclusive, but the published solution samples from range(100), i.e. 0 to 99. The invariant below describes the published code as written.
+
+Invariant:
+- The output is a Python list of exactly 5 distinct integers, where every element satisfies `0 <= x < 100`.
+- Because `random.sample` samples without replacement, all 5 elements are unique.
+- No guarantee is made regarding element order, which values appear, or their probability distribution.
+
+Boundary cases:
+- For `random.sample(range(1), 1)`, the only possible output is `[0]`.
+- For `random.sample(range(5), 5)`, the output is a 5-element permutation of `[0, 1, 2, 3, 4]`.
+
 ### Question 79
 Please write a program to randomly generate a list with 5 even numbers between 100 and 200 inclusive.
 

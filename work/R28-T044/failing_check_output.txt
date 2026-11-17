@@ -1,0 +1,6 @@
+Return code: 1
+Stdout:
+
+Stderr:
+AssertionError: Expected length 6, got 5
+

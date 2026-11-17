@@ -1,0 +1,35 @@
+{
+  "input": null,
+  "description": "Question 78 takes no console input; samples from range(n) without replacement.",
+  "published_fixture": {
+    "n": 100,
+    "k": 5
+  },
+  "tested_variations": [
+    {
+      "n": 1,
+      "k": 1,
+      "note": "Minimal domain and sample; output must be exactly [0]"
+    },
+    {
+      "n": 5,
+      "k": 5,
+      "note": "Full-domain boundary; output must be a permutation of [0, 1, 2, 3, 4]"
+    },
+    {
+      "n": 10,
+      "k": 1,
+      "note": "Single draw from 10 elements"
+    },
+    {
+      "n": 50,
+      "k": 25,
+      "note": "Half-domain draw"
+    },
+    {
+      "n": 200,
+      "k": 10,
+      "note": "Larger population draw"
+    }
+  ]
+}
