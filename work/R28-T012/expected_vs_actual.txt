@@ -1,0 +1,13 @@
+=== Published Example ===
+Input:         'ABd1234@1,a F1#,2w3E*,2We3345\n'
+Expected:      'ABd1234@1\n'
+Actual:        'ABd1234@1\n'
+Actual Value:  ['ABd1234@1']
+Match:         True
+
+=== Smallest Boundary Input ===
+Input:         'aB1#cd\n'
+Expected:      'aB1#cd\n'
+Actual:        'aB1#cd\n'
+Actual Value:  ['aB1#cd']
+Match:         True

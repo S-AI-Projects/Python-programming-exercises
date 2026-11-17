@@ -484,6 +484,11 @@ ABd1234@1,a F1#,2w3E*,2We3345
 Then, the output of the program should be:
 ABd1234@1
 
+If the smallest supported boundary input is given as input to the program:
+aB1#cd
+Then, the output of the program should be:
+aB1#cd
+
 Hints:
 In case of input data being supplied to the question, it should be assumed to be a console input.
 
@@ -513,6 +518,10 @@ for p in items:
     value.append(p)
 print(",".join(value))
 ```
+
+Explanation:
+The transaction password validation requires length between 6 and 12 characters, at least one lowercase letter [a-z], at least one uppercase letter [A-Z], at least one number [0-9], at least one special character from [$#@], and no whitespace. The smallest supported valid input has length 6 (e.g. `aB1#cd`), where `len(p) < 6` evaluates to False, satisfying the minimum length boundary while including all four required character classes and no whitespace characters.
+
 
 ### Question 19
 Level 3
