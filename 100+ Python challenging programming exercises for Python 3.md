@@ -1576,6 +1576,36 @@ values = [str(f(x)) for x in range(0, n+1)]
 print(",".join(values))
 ```
 
+**Documented failure / limitation:**
+
+1. **Negative input causes `RecursionError`:** The function only defines base cases for `n == 0` and `n == 1`. A negative input like `n = -1` triggers infinite recursion (`f(-1)` calls `f(-2)` calls `f(-3)` ...) until Python's recursion limit is hit, raising `RecursionError: maximum recursion depth exceeded`.
+
+    ```python
+    # Unsupported case — raises RecursionError:
+    # f(-1)  →  f(-2) + f(-3)  →  ... (never reaches base case)
+    ```
+
+2. **Exponential time complexity:** The naive recursive approach has O(2^n) time complexity because it recomputes the same subproblems repeatedly. For example, `f(7)` calls `f(5)` and `f(6)`, but `f(6)` itself calls `f(5)` again. The total number of function calls grows exponentially, making `n > 35` noticeably slow on most machines.
+
+    | n   | Approximate function calls |
+    |-----|---------------------------|
+    | 7   | 41                        |
+    | 20  | 21,891                    |
+    | 30  | 2,692,537                 |
+    | 35  | 29,860,703                |
+
+**Source contract:** The function assumes `n >= 0` (non-negative integer). The formula explicitly covers only `n=0`, `n=1`, and `n>1` — no negative case is defined.
+
+**Smallest supported input (`n=0` — single base-case value):**
+```python
+def f(n):
+    if n == 0: return 0
+    elif n == 1: return 1
+    else: return f(n-1)+f(n-2)
+
+print(",".join([str(f(x)) for x in range(0, 0+1)]))  # 0
+```
+
 ### Question 68
 
 Please write a program using generator to print the even numbers between 0 and n in comma separated form while n is input by console.

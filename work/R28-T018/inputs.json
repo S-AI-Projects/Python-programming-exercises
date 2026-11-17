@@ -1,0 +1,19 @@
+{
+  "question": 67,
+  "task": "R28-T018",
+  "description": "Fibonacci sequence via naive recursion",
+  "inputs": {
+    "main_example": {
+      "n": 7,
+      "expected_output": "0,1,1,2,3,5,8,13"
+    },
+    "boundary_example": {
+      "n": 0,
+      "expected_output": "0"
+    },
+    "failure_case": {
+      "call": "f(-1)",
+      "expected": "RecursionError"
+    }
+  }
+}

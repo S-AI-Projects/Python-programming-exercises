@@ -1,0 +1,13 @@
+--- Main example (n=7) ---
+Expected : 0,1,1,2,3,5,8,13
+Actual   : 0,1,1,2,3,5,8,13
+Match    : True
+
+--- Boundary example (n=0) ---
+Expected : 0
+Actual   : 0
+Match    : True
+
+--- Failure case: f(-1) called directly ---
+Expected : RecursionError raised
+Verified : yes (see check output)
