@@ -390,6 +390,11 @@ Suppose the following input is supplied to the program:
 Then, the output should be:
 11106
 
+Suppose the smallest supported boundary input is supplied to the program:
+0
+Then, the output should be:
+0
+
 Hints:
 In case of input data being supplied to the question, it should be assumed to be a console input.
 
@@ -403,6 +408,9 @@ n3 = int( "%s%s%s" % (a,a,a) )
 n4 = int( "%s%s%s%s" % (a,a,a,a) )
 print(n1+n2+n3+n4)
 ```
+
+Explanation:
+The problem gives 'a given digit' as the value of a, so the solution assumes a is a single digit read from the console as text. Because a is a string, "%s%s" % (a, a) repeats the characters before int() converts them. For a = "0" this gives "0", "00", "000", "0000", which int() parses as 0, so the output is 0.
 
 ### Question 16
 Level 2

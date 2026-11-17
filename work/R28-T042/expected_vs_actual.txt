@@ -1,0 +1,11 @@
+=== Published Example ===
+Input:    '9\n'
+Expected: '11106\n'
+Actual:   '11106\n'
+Match:    True
+
+=== Smallest Boundary Input ===
+Input:    '0\n'
+Expected: '0\n'
+Actual:   '0\n'
+Match:    True
