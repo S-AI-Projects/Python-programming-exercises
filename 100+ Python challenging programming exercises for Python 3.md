@@ -1959,6 +1959,16 @@ array = [[ [0 for col in range(8)] for col in range(5)] for row in range(3)]
 print(array)
 ```
 
+Output:
+```text
+[[[0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]], [[0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]], [[0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0]]]
+```
+
+Explanation:
+- The comprehension nests three levels: outer `range(3)` creates 3 2D blocks, middle `range(5)` creates 5 rows per block, and inner `range(8)` creates 8 columns of 0 per row, yielding a 3x5x8 array of 120 zeros.
+- Because nested comprehensions evaluate fresh list literals at each level, all 3 block list objects and all 15 row list objects are distinct in memory.
+- Smallest boundary dimension (1x1x1): `[[ [0 for col in range(1)] for col in range(1)] for row in range(1)]` produces `[[[0]]]`.
+
 ### Question 91
 By using list comprehension, please write a program to print the list after removing the 0th,4th,5th numbers in [12,24,35,70,88,120,155].
 

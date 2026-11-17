@@ -1,0 +1,6 @@
+Return code: 1
+Stdout:
+
+Stderr:
+AssertionError: Dimension mismatch! Expected 4 outer blocks, got 3
+
