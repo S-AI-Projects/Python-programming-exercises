@@ -1,0 +1,23 @@
+{
+  "published_example": {
+    "input": "Hello world\nPractice makes perfect\n\n",
+    "expected_output": "HELLO WORLD\nPRACTICE MAKES PERFECT\n"
+  },
+  "smallest_supported_input": {
+    "input": "a\n\n",
+    "expected_output": "A\n"
+  },
+  "mutation_tests": [
+    {
+      "mutant_operation": "s.upper() -> s (omitted upper)",
+      "mutant_output": "Hello world\nPractice makes perfect\n",
+      "mutant_killed": true
+    },
+    {
+      "mutant_operation": "s.upper() -> s.lower() (substituted lower)",
+      "mutant_output": "hello world\npractice makes perfect\n",
+      "mutant_killed": true
+    }
+  ],
+  "description": "Question 9 capitalizes multiline console input until an empty line is encountered."
+}

@@ -1,0 +1,26 @@
+=== Published Example Verification ===
+Input:
+Hello world
+Practice makes perfect
+
+Expected output:
+HELLO WORLD
+PRACTICE MAKES PERFECT
+Actual output:
+HELLO WORLD
+PRACTICE MAKES PERFECT
+Matches: True
+
+=== Smallest Supported Input Verification ===
+Input:
+a
+
+Expected output:
+A
+Actual output:
+A
+Matches: True
+
+=== Mutation Test Verification ===
+Mutant 1 (omitted upper) killed: True
+Mutant 2 (substituted lower) killed: True

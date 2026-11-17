@@ -1,0 +1,6 @@
+Return code: 1
+Stdout:
+
+Stderr:
+AssertionError: Expected output 'WRONG OUTPUT\n', got 'HELLO WORLD\nPRACTICE MAKES PERFECT\n'
+
