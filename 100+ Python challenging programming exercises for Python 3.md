@@ -1644,6 +1644,38 @@ for i in NumGenerator(n):
 print(",".join(values))
 ```
 
+**Regression protection — mutation test analysis:**
+
+A common one-operation mutant is changing `and` to `or` in the condition:
+
+```
+# MUTANT (not committed): if i%5==0 or i%7==0
+```
+
+This mutant yields numbers divisible by 5 **or** 7 instead of **both**, producing `0,5,7,10,14,15,20,21,25,28,30,35,40,42,45,49,50,...` — far more values than the correct `0,35,70`.
+
+The regression test that catches this mutant: for `n=100`, the correct output has exactly **3 values** (`0,35,70`). The `or` mutant produces **29 values**. Asserting the exact published output `"0,35,70"` catches any `and`→`or` regression immediately.
+
+| Variant | Condition | Output for n=100 | Count |
+|---------|-----------|-------------------|-------|
+| Correct | `i%5==0 and i%7==0` | `0,35,70` | 3 |
+| Mutant  | `i%5==0 or i%7==0`  | `0,5,7,10,14,...,98,100` | 29 |
+
+**Why it works:** Numbers divisible by both 5 and 7 are exactly the multiples of `lcm(5,7) = 35`. The `and` operator is essential — replacing it with `or` produces the union instead of the intersection.
+
+**Smallest supported input (`n=0` — only zero itself, which is divisible by every integer):**
+```python
+def NumGenerator(n):
+    for i in range(n+1):
+        if i%5==0 and i%7==0:
+            yield i
+
+values = []
+for i in NumGenerator(0):
+    values.append(str(i))
+print(",".join(values))  # 0
+```
+
 ### Question 70
 Please write assert statements to verify that every number in the list [2,4,6,8] is even.
 

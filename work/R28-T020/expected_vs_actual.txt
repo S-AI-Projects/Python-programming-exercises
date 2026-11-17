@@ -1,0 +1,14 @@
+--- Main example (n=100) ---
+Expected : 0,35,70
+Actual   : 0,35,70
+Match    : True
+
+--- Boundary example (n=0) ---
+Expected : 0
+Actual   : 0
+Match    : True
+
+--- Mutant test (and -> or) ---
+Mutant output : 0,5,7,10,14,15,20,21,25,28,30,35,40,42,45,49,50,55,56,60,63,65,70,75,77,80,84,85,90,91,95,98,100
+Correct output: 0,35,70
+Mutant caught : True

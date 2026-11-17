@@ -1,0 +1,22 @@
+{
+  "question": 69,
+  "task": "R28-T020",
+  "description": "Generator for numbers divisible by both 5 and 7",
+  "inputs": {
+    "main_example": {
+      "n": 100,
+      "expected_output": "0,35,70"
+    },
+    "boundary_example": {
+      "n": 0,
+      "expected_output": "0"
+    },
+    "mutant_test": {
+      "mutation": "and -> or in condition",
+      "n": 100,
+      "mutant_output": "0,5,7,10,14,15,20,21,25,28,30,35,40,42,45,49,50,55,56,60,63,65,70,75,77,80,84,85,90,91,95,98,100",
+      "correct_output": "0,35,70",
+      "mutant_caught": true
+    }
+  }
+}
