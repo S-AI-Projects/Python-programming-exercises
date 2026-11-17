@@ -1,0 +1,11 @@
+--- Main example ---
+Input    : hello world and practice makes perfect and hello world again
+Expected : again and hello makes perfect practice world
+Actual   : again and hello makes perfect practice world
+Match    : True
+
+--- Boundary example (single word) ---
+Input    : hello
+Expected : hello
+Actual   : hello
+Match    : True

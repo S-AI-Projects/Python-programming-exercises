@@ -276,6 +276,32 @@ words = [word for word in s.split(" ")]
 print(" ".join(sorted(list(set(words)))))
 ```
 
+**Resource behavior explanation:**
+
+The one-liner `" ".join(sorted(list(set(words))))` creates several intermediate data structures. Here is what each operation does and how it uses memory:
+
+| Step | Operation | Type produced | Space cost | Copies data? |
+|------|-----------|---------------|------------|-------------|
+| 1 | `s.split(" ")` | `list[str]` | O(n) — one new list; strings share memory with `s` via slicing | New list, shared string refs |
+| 2 | `[word for word in ...]` | `list[str]` | O(n) — a second copy of the same list | Yes — redundant copy |
+| 3 | `set(words)` | `set[str]` | O(k) where k = unique words — hash table with ~8× pointer overhead per entry | New container, shared string refs |
+| 4 | `list(set(words))` | `list[str]` | O(k) — converts set back to list for sorting | New list, shared string refs |
+| 5 | `sorted(...)` | `list[str]` | O(k) — Timsort uses O(k) auxiliary space | New sorted list |
+| 6 | `" ".join(...)` | `str` | O(m) where m = total characters in result | New string |
+
+For the published input (9 words, 7 unique), **6 intermediate objects** are created. The peak memory holds the original string, the word list, the set, and the sorted list simultaneously.
+
+**Note:** Step 2 (`[word for word in s.split(" ")]`) is redundant — `s.split(" ")` already returns a list. Writing `words = s.split(" ")` saves one O(n) copy.
+
+**Time complexity:** O(n) for splitting + O(k log k) for sorting where k ≤ n is the number of unique words. The `set()` construction is O(n) average-case (hash insertions). Overall: **O(n + k log k)**.
+
+**Smallest supported input (single word — no duplicates to remove):**
+```python
+s = "hello"
+words = [word for word in s.split(" ")]
+print(" ".join(sorted(list(set(words)))))  # hello
+```
+
 ### Question 11
 Level 2
 

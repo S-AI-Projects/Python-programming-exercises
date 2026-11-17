@@ -1,0 +1,15 @@
+{
+  "question": 10,
+  "task": "R28-T019",
+  "description": "Remove duplicate words and sort alphanumerically",
+  "inputs": {
+    "main_example": {
+      "input": "hello world and practice makes perfect and hello world again",
+      "expected_output": "again and hello makes perfect practice world"
+    },
+    "boundary_example": {
+      "input": "hello",
+      "expected_output": "hello"
+    }
+  }
+}
