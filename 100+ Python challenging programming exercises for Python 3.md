@@ -1321,6 +1321,14 @@ class MyError(Exception):
 error = MyError("something wrong")
 ```
 
+Output:
+*(No console output produced by the published script)*
+
+Explanation:
+- **Contract**: `MyError` inherits from `Exception` and defines `__init__(self, msg)`, requiring exactly one positional argument `msg`. The published example instantiates `error = MyError("something wrong")`, setting `error.msg` to `"something wrong"` with `isinstance(error, Exception)` being `True`. Additionally, `BaseException.__new__` initializes `error.args` to `('something wrong',)` upon creation, so `str(error)` evaluates to `"something wrong"` and `repr(error)` evaluates to `"MyError('something wrong')"`.
+- **Limitation / Misconception**: While built-in `Exception()` allows parameterless instantiation, `MyError.__init__` requires `msg` without a default value, so calling `MyError()` raises `TypeError`.
+- **Smallest Supported Input**: Instantiating with an empty string `error = MyError("")` succeeds, setting `error.msg` to `""` and `error.args` to `('',)`.
+
 ### Question 58
 Assuming that we have some email addresses in the "username@companyname.com" format, please write program to print the user name of a given email address. Both user names and company names are composed of letters only.
 

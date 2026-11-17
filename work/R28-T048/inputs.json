@@ -1,0 +1,7 @@
+{
+  "input": null,
+  "description": "Question 57 defines custom exception MyError with attribute msg and instantiates it.",
+  "published_instantiation": "MyError('something wrong')",
+  "smallest_instantiation": "MyError('')",
+  "invalid_instantiation": "MyError() raises TypeError"
+}

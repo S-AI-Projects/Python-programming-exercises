@@ -1,0 +1,12 @@
+=== Published Question 57 Verification ===
+Published error.msg:           'something wrong'
+Published error.args:          ('something wrong',)
+str(error):                    'something wrong'
+Matches msg attribute:         True
+
+=== Smallest Supported Input Verification ===
+Smallest error.msg:            ''
+Matches '':                    True
+
+=== Limitation / Misconception Verification ===
+Zero-argument call raised TypeError: True
