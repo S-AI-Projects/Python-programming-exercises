@@ -67,6 +67,45 @@ x=int(input())
 print(fact(x))
 ```
 
+**Step-by-step derivation for `fact(8) = 40320`:**
+
+The recursive function unwinds as follows, with each call multiplying the current value by the result of the next call:
+
+```
+fact(8) = 8 × fact(7)
+        = 8 × 7 × fact(6)
+        = 8 × 7 × 6 × fact(5)
+        = 8 × 7 × 6 × 5 × fact(4)
+        = 8 × 7 × 6 × 5 × 4 × fact(3)
+        = 8 × 7 × 6 × 5 × 4 × 3 × fact(2)
+        = 8 × 7 × 6 × 5 × 4 × 3 × 2 × fact(1)
+        = 8 × 7 × 6 × 5 × 4 × 3 × 2 × 1 × fact(0)
+        = 8 × 7 × 6 × 5 × 4 × 3 × 2 × 1 × 1   ← base case: fact(0) = 1
+        = 40320
+```
+
+| Call       | Returns                  | Intermediate product |
+|------------|--------------------------|----------------------|
+| `fact(0)`  | 1 (base case)            | 1                    |
+| `fact(1)`  | 1 × 1                    | 1                    |
+| `fact(2)`  | 2 × 1                    | 2                    |
+| `fact(3)`  | 3 × 2                    | 6                    |
+| `fact(4)`  | 4 × 6                    | 24                   |
+| `fact(5)`  | 5 × 24                   | 120                  |
+| `fact(6)`  | 6 × 120                  | 720                  |
+| `fact(7)`  | 7 × 720                  | 5040                 |
+| `fact(8)`  | 8 × 5040                 | **40320**            |
+
+**Smallest supported input (`x=0` → base case returns 1 immediately):**
+```python
+def fact(x):
+    if x == 0:
+        return 1
+    return x * fact(x - 1)
+
+print(fact(0))  # 1
+```
+
 ### Question 3
 Level 1
 

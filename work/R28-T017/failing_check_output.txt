@@ -1,0 +1,3 @@
+FAIL: fact(8) expected '40321', got '40320'
+
+Exit code: 1

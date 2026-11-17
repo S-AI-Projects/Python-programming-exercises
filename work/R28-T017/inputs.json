@@ -1,0 +1,15 @@
+{
+  "question": 2,
+  "task": "R28-T017",
+  "description": "Compute factorial of a given number",
+  "inputs": {
+    "main_example": {
+      "x": 8,
+      "expected_output": "40320"
+    },
+    "boundary_example": {
+      "x": 0,
+      "expected_output": "1"
+    }
+  }
+}
