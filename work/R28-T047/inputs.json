@@ -1,0 +1,14 @@
+{
+  "input": null,
+  "description": "Question 36 takes no console input; generates a dictionary for keys 1..20 and prints the keys.",
+  "published_range": {
+    "start": 1,
+    "stop": 21,
+    "keys_count": 20
+  },
+  "smallest_range": {
+    "start": 1,
+    "stop": 2,
+    "keys_count": 1
+  }
+}

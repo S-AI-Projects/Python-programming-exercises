@@ -935,6 +935,36 @@ def printDict():
 printDict()
 ```
 
+Output:
+```text
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+```
+
+Explanation:
+- `d=dict()` initializes an empty dictionary.
+- The loop `for i in range(1,21):` iterates 20 times for `i` from 1 to 20 inclusive, assigning `d[i]=i**2`, which populates the dictionary with 20 key-value pairs `{1: 1, 2: 4, 3: 9, ..., 20: 400}`.
+- `for k in d.keys():` iterates keys in insertion order (1 through 20) and `print(k)` prints each key on its own line.
+- Smallest supported range: for `range(1,2)`, the dictionary contains `{1: 1}` and prints `1`.
+
 ### Question 37
 Define a function which can generate and print a list where the values are square of numbers between 1 and 20 (both included).
 
