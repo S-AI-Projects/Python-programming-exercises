@@ -1,0 +1,18 @@
+{
+  "input": null,
+  "description": "Question 90 takes no console input; generates a 3x5x8 3D array of zeros via nested list comprehensions.",
+  "published_dimensions": {
+    "blocks": 3,
+    "rows_per_block": 5,
+    "cols_per_row": 8,
+    "total_zeros": 120,
+    "distinct_block_objects": 3,
+    "distinct_row_objects": 15
+  },
+  "boundary_dimensions": {
+    "blocks": 1,
+    "rows_per_block": 1,
+    "cols_per_row": 1,
+    "total_zeros": 1
+  }
+}
