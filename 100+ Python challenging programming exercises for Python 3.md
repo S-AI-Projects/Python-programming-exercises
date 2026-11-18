@@ -238,6 +238,13 @@ Then, the output should be:
 HELLO WORLD
 PRACTICE MAKES PERFECT
 
+Smallest supported input:
+Suppose the following input is supplied to the program:
+a
+
+Then, the output should be:
+A
+
 Hints:
 In case of input data being supplied to the question, it should be assumed to be a console input.
 
@@ -254,6 +261,12 @@ while True:
 for sentence in lines:
     print(sentence)
 ```
+
+Explanation:
+- **Loop and Termination**: `while True` reads console lines via `input()`. Non-empty lines are converted to uppercase via `s.upper()` and appended to `lines`. An empty line (`s == ""`) triggers `else: break;`, terminating input collection.
+- **Output Iteration**: `for sentence in lines:` iterates through the buffered lines and prints each capitalized sentence on its own line.
+- **Regression Protection / Mutation Resistance**: If a mutation occurs in the transformation operation (for example, omitting `.upper()` as `lines.append(s)` or substituting `s.lower()`), the output retains lowercase characters and fails assertion tests against uppercase fixtures like `'HELLO WORLD'`.
+- **Smallest Supported Input**: Supplying `'a'` followed by an empty line produces `'A'`.
 
 ### Question 10
 Level 2
