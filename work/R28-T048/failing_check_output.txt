@@ -1,0 +1,6 @@
+Return code: 1
+Stdout:
+
+Stderr:
+AssertionError: Expected error.msg to be 'deliberately_wrong', got 'something wrong'
+
