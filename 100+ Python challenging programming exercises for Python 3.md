@@ -1360,6 +1360,15 @@ Then, the output of the program should be:
 
 google
 
+Smallest supported input:
+If the following email address is given as input to the program:
+
+a@b.com
+
+Then, the output of the program should be:
+
+b
+
 In case of input data being supplied to the question, it should be assumed to be a console input.
 
 Hints:
@@ -1369,11 +1378,22 @@ Use \w to match letters.
 Solution:
 ```python
 import re
-emailAddress = raw_input()
-pat2 = "(\w+)@(\w+)\.(com)"
+emailAddress = input()
+pat2 = r"(\w+)@(\w+)\.(com)"
 r2 = re.match(pat2,emailAddress)
 print(r2.group(2))
 ```
+
+Explanation:
+- **Pattern and Groups**: The regex `r"(\w+)@(\w+)\.(com)"` defines three capture groups:
+  - Group 1: `(\w+)` captures the username (`'john'`).
+  - Group 2: `(\w+)` captures the company name (`'google'`).
+  - Group 3: `(com)` captures the top-level domain (`'com'`).
+- **Resource and String Match Behavior**:
+  - `r2.string` is the same object as the input string (`r2.string is emailAddress`).
+  - `r2.group(2)` is a `str` equal to `emailAddress[r2.start(2):r2.end(2)]` and is not the same object as the input (`r2.group(2) is not emailAddress`).
+  - `re.match` only tries to match at position 0 while `re.search` scans the string (for example, `re.match("b", "ab")` is `None`, whereas `re.search("b", "ab")` finds the match).
+- **Smallest Supported Input**: For input `a@b.com`, group 2 matches `'b'` and prints `b`.
 
 ### Question 60
 Write a program which accepts a sequence of words separated by whitespace as input to print the words composed of digits only.

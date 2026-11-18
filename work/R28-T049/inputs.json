@@ -1,0 +1,16 @@
+{
+  "published_example": {
+    "input": "john@google.com",
+    "expected_output": "google",
+    "extracted_groups": [
+      "john",
+      "google",
+      "com"
+    ]
+  },
+  "smallest_supported_input": {
+    "input": "a@b.com",
+    "expected_output": "b"
+  },
+  "description": "Question 59 parses company name from email using re.match and group(2)."
+}
