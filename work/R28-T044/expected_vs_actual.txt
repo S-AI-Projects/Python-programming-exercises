@@ -1,0 +1,12 @@
+=== Published Example Invariant Verification ===
+Code: random.sample(range(100), 5)
+Invariant: List of 5 distinct integers in [0, 99], followed by newline
+Total independent runs tested: 50
+Result: All 50 runs passed invariant assertions.
+
+=== Bounded Variations Verification ===
+Variation (n=1, k=1): All 20 runs passed invariant assertions.
+Variation (n=5, k=5): All 20 runs passed invariant assertions.
+Variation (n=10, k=1): All 20 runs passed invariant assertions.
+Variation (n=50, k=25): All 20 runs passed invariant assertions.
+Variation (n=200, k=10): All 20 runs passed invariant assertions.
