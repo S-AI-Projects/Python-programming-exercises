@@ -1,0 +1,41 @@
+python3 --version
+Python 3.15.2
+
+OS: Darwin 27.0.0 (macOS Golden Gate 27.0.1)
+
+Original Python 3 result from step 2:
+returncode: 0, stdout: "", stderr: "" (solution comment already executes cleanly under Python 3)
+
+Published fixture:
+input: none
+expected stdout: ""
+actual stdout:   ""
+PEP 263 encoding: utf-8
+
+Smallest input run (empty input):
+expected stdout: ""
+actual stdout:   ""
+
+Intermediate values test ('é'):
+expected:
+char: é
+codepoint: 233
+utf-8 bytes: [195, 169]
+
+actual:
+char: é
+codepoint: 233
+utf-8 bytes: [195, 169]
+
+Intermediate values test ('a'):
+expected:
+char: a
+codepoint: 97
+utf-8 bytes: [97]
+
+actual:
+char: a
+codepoint: 97
+utf-8 bytes: [97]
+
+wrong-result self-test correctly rejected modified byte values.
