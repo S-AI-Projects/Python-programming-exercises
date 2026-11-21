@@ -1433,6 +1433,18 @@ Write a special comment to indicate a Python source code file is in unicode.
 
 Hints:
 
+PEP 263 specifies the encoding declaration format. The -*- markers follow Emacs style syntax to tell editors and the Python parser that the file is encoded in UTF-8. Python matches the regular expression coding[:=]\s*([-\w.]+) on the first or second line to set the source encoding.
+
+For a concrete input character 'é':
+- character: 'é'
+- codepoint: 233
+- utf-8 bytes: [195, 169]
+
+For the smallest ASCII input 'a':
+- character: 'a'
+- codepoint: 97
+- utf-8 bytes: [97]
+
 Solution:
 ```python
 
