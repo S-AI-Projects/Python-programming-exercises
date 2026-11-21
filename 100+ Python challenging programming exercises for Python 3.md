@@ -1881,6 +1881,12 @@ Please write a program to shuffle and print the list [3,6,7,8].
 Hints:
 Use shuffle() function to shuffle a list.
 
+Because shuffle() is randomized, the elements of [3,6,7,8] can appear in any of the 24 possible orderings, so the printed output can differ from run to run.
+
+A common misconception is that shuffle() returns a new shuffled list. In fact, shuffle() modifies the list in place and returns None. If you write print(shuffle(li)), it prints None. If you write li = shuffle(li), li becomes None. The function contract is to mutate li directly, so we call shuffle(li) first and then print li.
+
+For a smallest input [1], the element cannot move, so the output is always [1]. Similarly, an empty list [] remains [].
+
 Solution:
 ```python
 from random import shuffle
