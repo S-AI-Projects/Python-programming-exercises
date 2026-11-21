@@ -1926,6 +1926,25 @@ By using list comprehension, please write a program to print the list after remo
 Hints:
 Use list comprehension to delete a bunch of element from a list.
 
+The list comprehension goes through the original list in order and checks each item with x%5!=0 and x%7!=0. It keeps an element only when it is divisible by neither 5 nor 7, building a new list. The variable name li is then rebound to this new list, so the original list is replaced.
+
+Before: [12, 24, 35, 70, 88, 120, 155]
+After: [12, 24, 88]
+
+Step by step derivation:
+
+| x | x%5 | x%7 | result | reason |
+|---|---|---|---|---|
+| 12 | 2 | 5 | kept | neither divisible by 5 nor 7 |
+| 24 | 4 | 3 | kept | neither divisible by 5 nor 7 |
+| 35 | 0 | 0 | dropped | divisible by both 5 and 7 |
+| 70 | 0 | 0 | dropped | divisible by both 5 and 7 |
+| 88 | 3 | 4 | kept | neither divisible by 5 nor 7 |
+| 120 | 0 | 1 | dropped | divisible by 5 |
+| 155 | 0 | 1 | dropped | divisible by 5 |
+
+For the smallest input [1], 1%5 is 1 and 1%7 is 1, so it is kept and gives [1]. For an input like [35], 35%5 is 0, so it is dropped and gives [].
+
 Solution:
 ```
 li = [12,24,35,70,88,120,155]
