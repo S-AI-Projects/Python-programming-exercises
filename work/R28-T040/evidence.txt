@@ -1,0 +1,38 @@
+python3 --version
+Python 3.15.2
+
+OS: Darwin 27.0.0 (macOS Golden Gate 27.0.1)
+
+Fixture inputs:
+set1 = set([1, 3, 6, 78, 35, 55])
+set2 = set([12, 24, 35, 24, 88, 120, 155])
+
+Published output:
+expected: '[35]\n'
+actual:   '[35]\n'
+
+Small input run (set([1]) and set([1])):
+expected: '[1]\n'
+actual:   '[1]\n'
+
+Small disjoint input run (set([1]) and set([2])):
+expected: '[]\n'
+actual:   '[]\n'
+
+Mutant description:
+One-operation mutant replacing &= with |= (in-place union instead of intersection).
+Mutant runs only in memory / temp file during check.py.
+
+Mutant outputs:
+Original fixture:
+- Correct output (sorted): [35]
+- Mutant output (sorted):  [1, 3, 6, 12, 24, 35, 55, 78, 88, 120, 155]
+- Result: mutant killed.
+
+Disjoint small input (set([1]) and set([2])):
+- Correct output (sorted): []
+- Mutant output (sorted):  [1, 2]
+- Result: mutant killed.
+
+Deliberate wrong-result self-test:
+Comparing actual output '[35]\n' against wrong answer '[35, 55]\n' was detected as mismatch and correctly rejected.

@@ -1992,6 +1992,12 @@ With two given lists [1,3,6,78,35,55] and [12,24,35,24,88,120,155], write a prog
 Hints:
 Use set() and "&=" to do set intersection operation.
 
+set2 is built from a list with 24 twice, and a set keeps only one copy, so set2 holds 12, 24, 35, 88, 120, 155.
+`&=` keeps only the elements that are in BOTH sets and updates set1 in place, so set1 becomes {35}.
+list(set1) turns that into a list, and print shows [35]. Changing &= to |= gives every element from both sets, so the output changes.
+
+For the smallest supported input with set([1]) and set([1]), the common element is 1, so the output is [1]. For two sets with nothing in common, like set([1]) and set([2]), the intersection is empty, so the output is [].
+
 Solution:
 ```python
 set1=set([1,3,6,78,35,55])
