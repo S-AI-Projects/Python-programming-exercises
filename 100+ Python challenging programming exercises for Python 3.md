@@ -1108,11 +1108,13 @@ Hints
 Use map() to generate a list.
 Use lambda to define anonymous functions.
 
+The result has the same length as the input list, keeps the same order, and each element at position i equals li[i] squared, so every result is zero or positive. For a concrete input li = [1,2,3], 1 squared is 1, 2 squared is 4, and 3 squared is 9, yielding [1, 4, 9].
+
 Solution
 ```python
 li = [1,2,3,4,5,6,7,8,9,10]
 squaredNumbers = map(lambda x: x**2, li)
-print(squaredNumbers)
+print(list(squaredNumbers))
 ```
 
 ### Question 47
