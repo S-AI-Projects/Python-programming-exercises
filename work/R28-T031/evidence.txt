@@ -1,0 +1,16 @@
+python3 --version
+Python 3.15.2
+
+OS: Darwin 23.5.0 (macOS)
+
+Test 1 (original list)
+expected: [2, 4, 6, 8, 10]
+actual:   [2, 4, 6, 8, 10]
+
+Test 2 (tiny list)
+input: li = [2]
+expected: [2]
+actual:   [2]
+
+wrong‑result self‑test correctly failed.
+
