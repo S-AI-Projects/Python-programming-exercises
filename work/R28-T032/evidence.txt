@@ -1,0 +1,18 @@
+python3 --version
+Python 3.15.2
+
+OS: Darwin 27.0.0 (macOS Golden Gate 27.0.1)
+
+Test 1 (published example: printValue("3","4"))
+expected: '34\n'
+actual:   '34\n'
+
+Test 2 (boundary case: printValue("","5"))
+expected: '34\n5\n'
+actual:   '34\n5\n'
+
+Test 3 (int contrast: printValue(3,4))
+expected: '34\n7\n'
+actual:   '34\n7\n'
+
+wrong-result self-test correctly rejected '7\n'.
