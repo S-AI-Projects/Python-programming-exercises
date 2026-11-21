@@ -1026,6 +1026,8 @@ Use range() for loops.
 Use list.append() to add values into a list.
 Use tuple() to get a tuple from a list.
 
+The source method builds a named list li step by step with append, and only converts it to a tuple at the end. The intermediate value is a list; for example, after 3 iterations li is [1, 4, 9] of type list. In contrast, the alternative has no named intermediate list. The generator expression produces each square one by one and tuple() consumes them directly. Both methods produce the same final tuple.
+
 Solution
 ```python
 def printTuple():
@@ -1034,6 +1036,14 @@ def printTuple():
 		li.append(i**2)
 	print(tuple(li))
 		
+printTuple()
+```
+
+Alternative
+```python
+def printTuple():
+    print(tuple(i**2 for i in range(1,21)))
+
 printTuple()
 ```
 ### Question 42

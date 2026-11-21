@@ -1,0 +1,20 @@
+python3 --version
+Python 3.15.2
+
+OS: Darwin 27.0.0 (macOS Golden Gate 27.0.1)
+
+Fixture: range(1, 21), squares of numbers 1 to 20
+
+Source solution (append to list, convert to tuple):
+expected: (1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225, 256, 289, 324, 361, 400)
+actual:   (1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225, 256, 289, 324, 361, 400)
+
+Alternative solution (generator expression in tuple()):
+expected: (1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225, 256, 289, 324, 361, 400)
+actual:   (1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225, 256, 289, 324, 361, 400)
+
+Intermediate value test (range(1, 4)):
+expected: (1, 4, 9)
+actual:   (1, 4, 9)
+
+wrong-result self-test correctly rejected plain numbers and list type.
