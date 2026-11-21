@@ -1096,6 +1096,8 @@ Use lambda to define anonymous functions.
 
 filter() returns a lazy filter object; it yields the elements that satisfy the lambda. To see the result you need to materialize it with list().
 
+# for a concrete input, e.g. li = [1,2,3,4] the lambda keeps 2 and 4, and list(evenNumbers) yields [2, 4]
+
 Solution
 ```python
 li = [1,2,3,4,5,6,7,8,9,10]

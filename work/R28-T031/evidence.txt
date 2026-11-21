@@ -1,7 +1,7 @@
 python3 --version
 Python 3.15.2
 
-OS: Darwin 23.5.0 (macOS)
+OS: (macOS Golden Gate 27.0.1)
 
 Test 1 (original list)
 expected: [2, 4, 6, 8, 10]
