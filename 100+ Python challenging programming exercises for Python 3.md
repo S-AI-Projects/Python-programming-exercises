@@ -1815,11 +1815,44 @@ Please write a program to randomly generate a list with 5 numbers, which are div
 Hints:
 Use random.sample() to generate a list of random values.
 
+Because random.sample() picks randomly, the printed numbers differ from run to run. The output is always 5 distinct numbers between 1 and 1000 that are multiples of both 5 and 7 (multiples of 35).
+
+For the smallest supported input k = 1, swapping 5 for 1 produces a list with exactly one multiple of 35. With k = 0, it gives [] as an empty-result contrast.
+
 Solution:
 ```python
 import random
 print(random.sample([i for i in range(1,1001) if i%5==0 and i%7==0], 5))
 ```
+
+Experiment:
+```python
+import random
+pop = [i for i in range(1,1001) if i%5==0 and i%7==0]
+pop_copy = list(pop)
+picked = random.sample(pop, 5)
+
+print("len(pop):", len(pop))
+print("len(picked):", len(picked))
+print("pop unchanged:", pop == pop_copy)
+print("different object:", picked is not pop)
+print("all in pop and no repeats:", all(x in pop for x in picked) and len(set(picked)) == len(picked))
+```
+
+Experiment output:
+```text
+len(pop): 28
+len(picked): 5
+pop unchanged: True
+different object: True
+all in pop and no repeats: True
+```
+
+What the experiment shows:
+The list comprehension builds the full population list first (28 numbers here, the multiples of 35 up to 980), so it holds all of them in memory at once before sampling.
+random.sample then picks 5 without replacement and returns a NEW list, not a view of the population, so the population is not changed or shortened.
+Because it is a new list of 5 numbers, using it later does not touch the original 28.
+
 
 ### Question 81
 Please write a program to randomly print a integer number between 7 and 15 inclusive.
