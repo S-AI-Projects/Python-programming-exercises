@@ -1,0 +1,41 @@
+python3 --version
+Python 3.15.2
+
+OS: Darwin 27.0.0 (macOS Golden Gate 27.0.1)
+
+Original output before fix:
+<map object at 0x...> (lazy map object in Python 3, fixed with list())
+
+Fixture: li = [1,2,3,4,5,6,7,8,9,10]
+expected: [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+actual:   [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+
+Variation 1: li = []
+expected: []
+actual:   []
+
+Variation 2: li = [0]
+expected: [0]
+actual:   [0]
+
+Variation 3: li = [1]
+expected: [1]
+actual:   [1]
+
+Variation 4 (smallest input): li = [3]
+expected: [9]
+actual:   [9]
+
+Variation 5: li = [-3, 3]
+expected: [9, 9]
+actual:   [9, 9]
+
+Variation 6: li = [2, 4, 6]
+expected: [4, 16, 36]
+actual:   [4, 16, 36]
+
+Variation 7: li = [10, 20, 30]
+expected: [100, 400, 900]
+actual:   [100, 400, 900]
+
+wrong-result self-test correctly rejected unsquared list [1, 2, 9] for input [1, 2, 3].
