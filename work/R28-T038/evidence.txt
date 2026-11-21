@@ -1,0 +1,28 @@
+python3 --version
+Python 3.15.2
+
+OS: Darwin 27.0.0 (macOS Golden Gate 27.0.1)
+
+Fixture input:
+li = [3, 6, 7, 8]
+
+Random permutation validation (20 runs):
+expected sorted elements: [3, 6, 7, 8]
+actual observed sample:   [8, 6, 3, 7]
+all 20 random permutation runs passed.
+
+Smallest input run (li = [1]):
+expected: [1]
+actual:   [1]
+
+Empty list run (li = []):
+expected: []
+actual:   []
+
+Misconception test:
+shuffle() modifies in-place and returns None.
+Calling print(shuffle(li)):
+expected: None
+actual:   None
+
+wrong-result self-test correctly rejected invalid permutation [3, 6, 7, 7].
