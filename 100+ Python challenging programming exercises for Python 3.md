@@ -804,6 +804,8 @@ Hints:
 
 Use + to concatenate the strings
 
+The function expects two strings as arguments. Because both arguments are strings, + concatenates them instead of adding numbers, so printValue("3","4") prints 34. For a boundary case with an empty string, printValue("","5") prints 5. If integers are passed instead, like printValue(3,4), + performs addition and prints 7.
+
 Solution
 ```python
 def printValue(s1,s2):
