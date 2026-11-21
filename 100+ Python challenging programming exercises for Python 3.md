@@ -1094,11 +1094,15 @@ Hints:
 Use filter() to filter some elements in a list.
 Use lambda to define anonymous functions.
 
+filter() returns a lazy filter object; it yields the elements that satisfy the lambda. To see the result you need to materialize it with list().
+
+# for a concrete input, e.g. li = [1,2,3,4] the lambda keeps 2 and 4, and list(evenNumbers) yields [2, 4]
+
 Solution
 ```python
 li = [1,2,3,4,5,6,7,8,9,10]
 evenNumbers = filter(lambda x: x%2==0, li)
-print(evenNumbers)
+print(list(evenNumbers))
 ```
 
 ### Question 46
