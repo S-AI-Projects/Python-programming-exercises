@@ -646,6 +646,8 @@ to:1
 Hints
 In case of input data being supplied to the question, it should be assumed to be a console input.
 
+For a short input "b a b", freq starts empty. After reading "b", freq is {'b': 1}. After reading "a", freq is {'b': 1, 'a': 1}. After reading the second "b", freq is {'b': 2, 'a': 1}. Then sorted() orders keys by character code without depending on locale (for example uppercase letters sort before lowercase letters), producing ['a', 'b']. Finally, it prints a:1 then b:2.
+
 Solution:
 
 ```python
@@ -654,8 +656,7 @@ line = input()
 for word in line.split():
     freq[word] = freq.get(word,0)+1
 
-words = freq.keys()
-words.sort()
+words = sorted(freq.keys())
 
 for w in words:
     print("%s:%d" % (w,freq[w]))

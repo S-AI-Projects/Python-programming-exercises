@@ -1,0 +1,57 @@
+python3 --version
+Python 3.15.2
+
+OS: Darwin 27.0.0 (macOS Golden Gate 27.0.1)
+
+Original Python 3 error before fix:
+Traceback (most recent call last):
+  File "<string>", line 8, in <module>
+    words.sort()
+    ^^^^^^^^^^
+AttributeError: 'dict_keys' object has no attribute 'sort'
+
+Published fixture input:
+New to Python or choosing between Python 2 and Python 3? Read Python 2 or Python 3.
+
+Published fixture output:
+expected:
+2:2
+3.:1
+3?:1
+New:1
+Python:5
+Read:1
+and:1
+between:1
+choosing:1
+or:2
+to:1
+
+actual:
+2:2
+3.:1
+3?:1
+New:1
+Python:5
+Read:1
+and:1
+between:1
+choosing:1
+or:2
+to:1
+
+Smallest input ('a'):
+expected:
+a:1
+
+actual:
+a:1
+
+Intermediate dict state test (input 'b a b'):
+expected dict in output: {'b': 2, 'a': 1}
+actual output:
+a:1
+b:2
+{'b': 2, 'a': 1}
+
+wrong-result self-test correctly rejected modified counts and unsorted lines.
