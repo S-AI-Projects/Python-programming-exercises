@@ -1,0 +1,27 @@
+Environment & Tool Versions:
+Python: Python 3.15.2
+Platform: macOS 26.4 (Build 25E246, Darwin 25.4.0 arm64)
+
+Summary of Test Results:
+All assertions in work/R28-T024/check.py executed successfully against the authoritative source.
+
+1. Published Fixture:
+- Code: squaredNumbers = map(lambda x: x**2, range(1,21)); print(squaredNumbers)
+- Output: '<map object at 0x...>\n' (matches map object pattern)
+- Object Type: map
+- Materialized Sequence: [1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225, 256, 289, 324, 361, 400]
+- Invariant: Every produced value y satisfies y = x^2 for x in [1, 20]; all y >= 0, sequence length is 20, strictly monotonic.
+
+2. Bounded Variations (6 variations tested):
+- Variation 1: range(1, 2)   -> [1] (Smallest single-element positive domain)
+- Variation 2: range(0, 1)   -> [0] (Zero boundary domain)
+- Variation 3: range(1, 6)   -> [1, 4, 9, 16, 25] (Bounded domain [1, 5])
+- Variation 4: range(10, 16) -> [100, 121, 144, 169, 196, 225] (Bounded domain [10, 15])
+- Variation 5: range(1, 1)   -> [] (Empty domain boundary)
+- Variation 6: range(-3, 4)  -> [9, 4, 1, 0, 1, 4, 9] (Negative to positive domain)
+
+3. Deliberate Failure Verification:
+- Executed with --wrong flag:
+  AssertionError raised on mismatched expectation (claiming map object printout equals a list), exited with code 1.
+- Internal self-test:
+  Mismatch against wrong type ('list') caught and rejected.

@@ -1150,6 +1150,18 @@ Hints
 Use map() to generate a list.
 Use lambda to define anonymous functions.
 
+In Python 3, `map(func, iterable)` returns a lazy iterator (a `map` object) rather than a list. Calling `print(squaredNumbers)` displays the map object representation (such as `<map object at 0x...>`), not the evaluated numbers. To obtain or display the squared values as a sequence, the iterator must be consumed, for example by converting it with `list(squaredNumbers)`.
+
+**Domain and Lambda Transformation**:
+- The input domain is defined by `range(1, 21)`, which generates consecutive integers $x \in [1, 20]$ ($1, 2, \dots, 20$).
+- The lambda function `lambda x: x**2` maps each input element $x$ to its square $x^2$.
+
+**Mathematical Invariant**:
+- For every element $y$ produced by the map iterator from input $x \in \text{range}(a, b)$, the invariant $y = x^2$ holds strictly. Consequently, every generated value is non-negative ($y \ge 0$), $\sqrt{y} = x$, the sequence is strictly monotonically increasing for $x \ge 0$, and the length of the produced sequence equals $\text{len}(\text{range}(a, b))$.
+
+**Smallest Supported Input Demonstration**:
+- The smallest non-empty demonstration is `range(1, 2)` (domain $\{1\}$), where `map(lambda x: x**2, range(1, 2))` produces a single element: `[1]`. For an empty domain `range(1, 1)`, the iterator produces no elements (`[]`).
+
 Solution
 ```python
 squaredNumbers = map(lambda x: x**2, range(1,21))

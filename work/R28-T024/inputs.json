@@ -1,0 +1,17 @@
+{
+  "published_fixture": {
+    "domain": "range(1, 21)",
+    "transformation": "lambda x: x**2",
+    "output_type": "map",
+    "materialized_count": 20,
+    "invariant": "y = x**2 for all x in domain, y >= 0, monotonically increasing"
+  },
+  "bounded_variations": [
+    {"domain": "range(1, 2)", "expected": [1], "description": "Smallest positive single-element domain"},
+    {"domain": "range(0, 1)", "expected": [0], "description": "Zero boundary domain"},
+    {"domain": "range(1, 6)", "expected": [1, 4, 9, 16, 25], "description": "Bounded domain [1, 5]"},
+    {"domain": "range(10, 16)", "expected": [100, 121, 144, 169, 196, 225], "description": "Bounded domain [10, 15]"},
+    {"domain": "range(1, 1)", "expected": [], "description": "Empty domain boundary"},
+    {"domain": "range(-3, 4)", "expected": [9, 4, 1, 0, 1, 4, 9], "description": "Negative to positive domain"}
+  ]
+}

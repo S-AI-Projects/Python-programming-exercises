@@ -1,0 +1,17 @@
+Reading solution from: /Users/nipun/S&AI-Projects/Python-programming-exercises/Python-programming-exercises/work/R28-T024/../../100+ Python challenging programming exercises for Python 3.md
+Extracted code from markdown:
+---
+squaredNumbers = map(lambda x: x**2, range(1,21))
+print(squaredNumbers)
+---
+
+[SIMULATING DELIBERATE FAILURE (--wrong flag active)]
+Actual stdout: '<map object at 0x1029b2bc0>' | Deliberate Wrong Expected: '[1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225, 256, 289, 324, 361, 400]'
+Traceback (most recent call last):
+  File "/Users/nipun/S&AI-Projects/Python-programming-exercises/Python-programming-exercises/work/R28-T024/check.py", line 156, in <module>
+    main()
+    ~~~~^^
+  File "/Users/nipun/S&AI-Projects/Python-programming-exercises/Python-programming-exercises/work/R28-T024/check.py", line 64, in main
+    assert actual == deliberate_wrong, f"DELIBERATE FAILURE TRIGGERED: Output {actual!r} did not match wrong expectation {deliberate_wrong!r}"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: DELIBERATE FAILURE TRIGGERED: Output '<map object at 0x1029b2bc0>' did not match wrong expectation '[1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225, 256, 289, 324, 361, 400]'

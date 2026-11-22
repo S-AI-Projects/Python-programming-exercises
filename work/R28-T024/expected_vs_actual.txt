@@ -1,0 +1,39 @@
+=== Question 49 Verification: Expected vs Actual Results ===
+
+Case 1 (Published Fixture):
+Expression:     map(lambda x: x**2, range(1, 21))
+Expected Type:  map
+Actual Type:    map
+Print Output:   <map object at 0x...> (Matches iterator representation)
+Materialized:   [1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225, 256, 289, 324, 361, 400]
+Status:         PASS
+
+Case 2 (Smallest Positive Input - range(1, 2)):
+Expected:       [1]
+Actual:         [1]
+Status:         PASS
+
+Case 3 (Zero Boundary - range(0, 1)):
+Expected:       [0]
+Actual:         [0]
+Status:         PASS
+
+Case 4 (Bounded Domain - range(1, 6)):
+Expected:       [1, 4, 9, 16, 25]
+Actual:         [1, 4, 9, 16, 25]
+Status:         PASS
+
+Case 5 (Bounded Domain - range(10, 16)):
+Expected:       [100, 121, 144, 169, 196, 225]
+Actual:         [100, 121, 144, 169, 196, 225]
+Status:         PASS
+
+Case 6 (Empty Domain - range(1, 1)):
+Expected:       []
+Actual:         []
+Status:         PASS
+
+Case 7 (Symmetric Domain - range(-3, 4)):
+Expected:       [9, 4, 1, 0, 1, 4, 9]
+Actual:         [9, 4, 1, 0, 1, 4, 9]
+Status:         PASS
