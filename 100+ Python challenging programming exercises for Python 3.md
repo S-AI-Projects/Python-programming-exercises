@@ -1594,6 +1594,23 @@ Use yield to produce the next value in generator.
 
 In case of input data being supplied to the question, it should be assumed to be a console input.
 
+**Generator Mechanics and State Explanation**:
+- Calling `EvenGenerator(n)` returns a lazy generator iterator rather than computing all values at once.
+- The loop variable `i` starts at `0` and increments by 1 on each step (`i += 1`). The loop condition `while i <= n` bounds the iteration to integers in the interval $[0, n]$.
+- The check `if i % 2 == 0` tests for even numbers. When true, `yield i` pauses the generator function and produces the current value of `i` to the caller, preserving its local variables and execution state until the next item is requested.
+- When `i` exceeds `n`, the while loop finishes and the generator raises `StopIteration`.
+
+**Concrete Walkthrough (Published Input `n = 10`)**:
+- $i = 0$: $0 \le 10$, $0 \pmod 2 == 0 \to$ yields `0`.
+- $i = 1$: $1 \le 10$, $1 \pmod 2 \ne 0 \to$ skipped, $i$ becomes 2.
+- $i = 2, 4, 6, 8, 10$: each satisfies the condition and is yielded.
+- $i = 11$: $11 \le 10$ is False, generator terminates.
+- The caller collects `['0', '2', '4', '6', '8', '10']` and `",".join(values)` prints `0,2,4,6,8,10`.
+
+**Smallest Supported Input**:
+- For $n = 0$, the loop evaluates $i = 0 \le 0$, yielding `0`. The next increment $i = 1$ terminates the loop, producing the output `0`.
+- For $n = 1$, $i = 0$ yields `0` and $i = 1$ is skipped, also producing output `0`.
+
 Solution:
 ```python
 def EvenGenerator(n):

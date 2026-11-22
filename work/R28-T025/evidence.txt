@@ -1,0 +1,34 @@
+Environment & Tool Versions:
+Python: Python 3.15.2
+Platform: macOS 26.4 (Build 25E246, Darwin 25.4.0 arm64)
+
+Summary of Test Results:
+All assertions in work/R28-T025/check.py executed successfully against the authoritative source.
+
+1. Published Fixture (n = 10):
+- Input: 10
+- Expected String: '0,2,4,6,8,10\n'
+- Actual String:   '0,2,4,6,8,10\n'
+- Parsed Integer Values: [0, 2, 4, 6, 8, 10]
+- Status: MATCH (both formatted string and numerical values verified)
+
+2. Smallest Supported Inputs:
+- Zero boundary (n = 0):
+  - Expected: '0\n'
+  - Actual:   '0\n'
+  - Status: MATCH
+- Odd boundary (n = 1):
+  - Expected: '0\n'
+  - Actual:   '0\n'
+  - Status: MATCH
+
+3. Additional Bounded Variations:
+- n = 2:  Expected: '0,2\n'          | Actual: '0,2\n'          | Values: [0, 2]
+- n = 5:  Expected: '0,2,4\n'        | Actual: '0,2,4\n'        | Values: [0, 2, 4]
+- n = 12: Expected: '0,2,4,6,8,10,12\n' | Actual: '0,2,4,6,8,10,12\n' | Values: [0, 2, 4, 6, 8, 10, 12]
+
+4. Deliberate Failure Verification:
+- Executed with --wrong flag:
+  AssertionError raised on mismatched expectation (expected '1,3,5,7,9' vs actual '0,2,4,6,8,10'), exited with code 1.
+- Internal self-test:
+  Mismatch against wrong expectation ('0,1,2,3,4,5,6,7,8,9,10\n') caught and rejected.

@@ -1,0 +1,29 @@
+Reading solution from: /Users/nipun/S&AI-Projects/Python-programming-exercises/Python-programming-exercises/work/R28-T025/../../100+ Python challenging programming exercises for Python 3.md
+Extracted code from markdown:
+---
+def EvenGenerator(n):
+    i=0
+    while i<=n:
+        if i%2==0:
+            yield i
+        i+=1
+
+
+n=int(input())
+values = []
+for i in EvenGenerator(n):
+    values.append(str(i))
+
+print(",".join(values))
+---
+
+[SIMULATING DELIBERATE FAILURE (--wrong flag active)]
+Input: '10' | Actual: '0,2,4,6,8,10' | Deliberate Wrong Expected: '1,3,5,7,9'
+Traceback (most recent call last):
+  File "/Users/nipun/S&AI-Projects/Python-programming-exercises/Python-programming-exercises/work/R28-T025/check.py", line 135, in <module>
+    main()
+    ~~~~^^
+  File "/Users/nipun/S&AI-Projects/Python-programming-exercises/Python-programming-exercises/work/R28-T025/check.py", line 67, in main
+    assert actual == deliberate_wrong, f"DELIBERATE FAILURE TRIGGERED: Output {actual!r} did not match wrong expectation {deliberate_wrong!r}"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: DELIBERATE FAILURE TRIGGERED: Output '0,2,4,6,8,10' did not match wrong expectation '1,3,5,7,9'
