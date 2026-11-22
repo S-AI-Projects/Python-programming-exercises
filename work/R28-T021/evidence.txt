@@ -1,0 +1,39 @@
+Environment Details:
+python3 --version
+Python 3.15.2
+
+OS:
+macOS 26.4 (Build 25E246, Darwin 25.4.0 arm64)
+
+Fixture inputs and results:
+1. Published example:
+   Input: tp = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+   Expected output: '(2, 4, 6, 8, 10)\n'
+   Actual output:   '(2, 4, 6, 8, 10)\n'
+   Result: MATCH (Verified by AST literal eval as well)
+
+2. Smallest supported inputs:
+   - Smallest single even element:
+     Input: tp = (2,)
+     Expected output: '(2,)\n'
+     Actual output:   '(2,)\n'
+     Result: MATCH
+   - Smallest single odd element:
+     Input: tp = (1,)
+     Expected output: '()\n'
+     Actual output:   '()\n'
+     Result: MATCH
+
+3. Bug / Mutant detection:
+   - Original buggy code investigation:
+     Attempted `tp[i] % 2 == 0` with `for i in tp:`:
+     Result: Failed with IndexError (tuple index out of range), non-zero exit code. Caught and verified.
+   - Odd mutant investigation:
+     Replaced `i % 2 == 0` with `i % 2 != 0`:
+     Expected: (2, 4, 6, 8, 10)
+     Mutant output: (1, 3, 5, 7, 9)
+     Result: Mutant killed successfully.
+
+4. Deliberate wrong-result self-test:
+   Comparing actual output against deliberate incorrect output '(2, 4, 6, 8)\n'
+   Result: Discrepancy detected and correctly rejected.

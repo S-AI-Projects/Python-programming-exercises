@@ -1060,13 +1060,19 @@ Hints:
 Use "for" to iterate the tuple
 Use tuple() to generate a tuple from a list.
 
+`for i in tp:` iterates over elements of the tuple directly, where `i` takes values 1, 2, ..., 10.
+The condition `i % 2 == 0` filters out even numbers (2, 4, 6, 8, 10), which are appended to `li`.
+`tuple(li)` converts the accumulated list into the resulting tuple `(2, 4, 6, 8, 10)`.
+
+For a smallest supported input with a single even element `tp = (2,)`, the loop checks `2 % 2 == 0`, appending 2 to yield `(2,)`. For a single odd element `tp = (1,)`, no element satisfies the condition, yielding `()`.
+
 Solution
 ```python
 tp=(1,2,3,4,5,6,7,8,9,10)
 li=list()
 for i in tp:
-	if tp[i]%2==0:
-		li.append(tp[i])
+	if i%2==0:
+		li.append(i)
 
 tp2=tuple(li)
 print(tp2)
