@@ -1,0 +1,24 @@
+{
+  "published_example": {
+    "fixture": {"length": 2, "width": 10},
+    "expected_area": 20,
+    "internal_state": {"length": 2, "width": 10}
+  },
+  "smallest_supported_inputs": [
+    {
+      "description": "Smallest positive integer dimensions",
+      "fixture": {"length": 1, "width": 1},
+      "expected_area": 1
+    },
+    {
+      "description": "Zero boundary dimensions",
+      "fixture": {"length": 0, "width": 0},
+      "expected_area": 0
+    }
+  ],
+  "alternative_comparison": {
+    "fixture": {"length": 2, "width": 10},
+    "functional_implementation": "def direct_area(l, w): return l * w",
+    "expected_area": 20
+  }
+}

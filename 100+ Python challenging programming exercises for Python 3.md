@@ -1222,6 +1222,15 @@ Hints:
 
 Use def methodName(self) to define a method.
 
+The `Rectangle` class encapsulates dimension attributes and provides an `area()` method:
+- Instantiating `aRectangle = Rectangle(2, 10)` invokes `__init__(self, l, w)`, assigning attributes `self.length = 2` and `self.width = 10`. The object's internal state is stored in its attribute dictionary as `{'length': 2, 'width': 10}`.
+- Calling `aRectangle.area()` retrieves `self.length` and `self.width` from the instance and returns their product: `2 * 10 = 20`.
+- For the smallest supported positive integer input `Rectangle(1, 1)`, the object stores `{'length': 1, 'width': 1}` and computes an area of `1`. (At the zero boundary `Rectangle(0, 0)`, the area is `0`).
+
+Comparison with an alternative method:
+- **Class-based method**: Creates a stateful `Rectangle` instance holding dimensions in its namespace dictionary. It allows dimensions to persist and be reused by other methods, but incurs object instantiation and attribute lookup overhead.
+- **Direct functional alternative** (`def rectangle_area(l, w): return l * w`): On the same fixture `(2, 10)`, `rectangle_area(2, 10)` multiplies the arguments directly in the local call stack frame to produce `20`. It avoids object allocation and attribute dictionary overhead for one-off calculations, but does not retain persistent object state.
+
 Solution:
 ```python
 class Rectangle(object):

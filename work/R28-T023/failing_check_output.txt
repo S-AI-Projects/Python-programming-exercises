@@ -1,0 +1,25 @@
+Reading solution from: /Users/nipun/S&AI-Projects/Python-programming-exercises/Python-programming-exercises/work/R28-T023/../../100+ Python challenging programming exercises for Python 3.md
+Extracted code from markdown:
+---
+class Rectangle(object):
+    def __init__(self, l, w):
+        self.length = l
+        self.width  = w
+
+    def area(self):
+        return self.length*self.width
+
+aRectangle = Rectangle(2,10)
+print(aRectangle.area())
+---
+
+[SIMULATING DELIBERATE FAILURE (--wrong flag active)]
+Actual: '20' | Deliberate Wrong Expected: '40'
+Traceback (most recent call last):
+  File "/Users/nipun/S&AI-Projects/Python-programming-exercises/Python-programming-exercises/work/R28-T023/check.py", line 145, in <module>
+    main()
+    ~~~~^^
+  File "/Users/nipun/S&AI-Projects/Python-programming-exercises/Python-programming-exercises/work/R28-T023/check.py", line 63, in main
+    assert actual == deliberate_wrong, f"DELIBERATE FAILURE TRIGGERED: Output {actual!r} did not match wrong expectation {deliberate_wrong!r}"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: DELIBERATE FAILURE TRIGGERED: Output '20' did not match wrong expectation '40'

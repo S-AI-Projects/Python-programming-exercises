@@ -1,0 +1,42 @@
+Environment & Tool Versions:
+Python: Python 3.15.2
+Platform: macOS 26.4 (Build 25E246, Darwin 25.4.0 arm64)
+
+Summary of Test Results:
+All assertions in work/R28-T023/check.py executed successfully against the authoritative source.
+
+1. Published Example:
+- Instance: Rectangle(2, 10)
+- Stored attributes: {'length': 2, 'width': 10}
+- Computed area: 2 * 10 = 20
+- Expected: '20\n'
+- Actual:   '20\n'
+- Status: MATCH
+
+2. Smallest Supported Inputs:
+- Smallest positive integer input:
+  - Instance: Rectangle(1, 1)
+  - Stored attributes: {'length': 1, 'width': 1}
+  - Expected: '1\n'
+  - Actual:   '1\n'
+  - Status: MATCH
+- Zero boundary:
+  - Instance: Rectangle(0, 0)
+  - Stored attributes: {'length': 0, 'width': 0}
+  - Expected: '0\n'
+  - Actual:   '0\n'
+  - Status: MATCH
+
+3. Independent Comparison on Same Fixture (2, 10):
+- Class method: aRectangle.area() -> '20\n'
+- Functional alternative: direct_area(2, 10) -> '20\n'
+- Status: MATCH (both produce identical result 20)
+- Intermediate representation difference:
+  - Class method creates a heap instance of Rectangle with an instance dictionary {'length': 2, 'width': 10}, encapsulating state across calls.
+  - Functional alternative executes statelessly within the call frame, avoiding allocation and attribute lookup overhead.
+
+4. Deliberate Failure Verification:
+- Executed with --wrong flag:
+  AssertionError raised on mismatched expectation (expected '40' vs actual '20'), exited with code 1.
+- Internal self-test:
+  Mismatch against wrong expectation ('99\n') caught and rejected.
