@@ -1078,13 +1078,25 @@ Hints:
 
 Use if statement to judge condition.
 
+The program tests exact string equality against `"yes"`, `"YES"`, and `"Yes"`.
+Precondition: The condition evaluates to `True` if and only if the input string `s` exactly matches one of the three target literals (`s == "yes" or s == "YES" or s == "Yes"`). When satisfied, it prints `"Yes"`. Any other string falls through to the `else` branch and prints `"No"`.
+
+Published examples:
+- Input `"yes"` -> Output `"Yes"`
+- Input `"YES"` -> Output `"Yes"`
+- Input `"Yes"` -> Output `"Yes"`
+
+Boundary and smallest supported input:
+- The smallest supported input is the empty string `""` (entering an empty line). Because `""` does not equal `"yes"`, `"YES"`, or `"Yes"`, the condition evaluates to `False` and the program prints `"No"`.
+- A boundary case such as `"yEs"` or `"y"` (partial match or differing case) also does not satisfy the exact equality precondition and prints `"No"`.
+
 Solution
 ```python
-s= raw_input()
+s = input()
 if s=="yes" or s=="YES" or s=="Yes":
-    print "Yes"
+    print("Yes")
 else:
-    print "No"
+    print("No")
 ```
 ### Question 45
 Write a program which can filter even numbers in a list by using filter function. The list is: [1,2,3,4,5,6,7,8,9,10].

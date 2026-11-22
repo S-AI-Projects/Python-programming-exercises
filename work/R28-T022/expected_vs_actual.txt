@@ -1,0 +1,49 @@
+=== Question 44 Verification: Expected vs Actual Results ===
+
+Case 1 (Published):
+Input:    'yes'
+Expected: 'Yes'
+Actual:   'Yes'
+Status:   PASS
+
+Case 2 (Published):
+Input:    'YES'
+Expected: 'Yes'
+Actual:   'Yes'
+Status:   PASS
+
+Case 3 (Published):
+Input:    'Yes'
+Expected: 'Yes'
+Actual:   'Yes'
+Status:   PASS
+
+Case 4 (Smallest Supported Input):
+Input:    ''
+Expected: 'No'
+Actual:   'No'
+Status:   PASS
+
+Case 5 (Boundary - Mixed Case):
+Input:    'yEs'
+Expected: 'No'
+Actual:   'No'
+Status:   PASS
+
+Case 6 (Boundary - Prefix):
+Input:    'y'
+Expected: 'No'
+Actual:   'No'
+Status:   PASS
+
+Case 7 (Boundary - Whitespace):
+Input:    'yes '
+Expected: 'No'
+Actual:   'No'
+Status:   PASS
+
+Case 8 (Boundary - Contrast):
+Input:    'no'
+Expected: 'No'
+Actual:   'No'
+Status:   PASS

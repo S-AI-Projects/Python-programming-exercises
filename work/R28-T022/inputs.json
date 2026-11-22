@@ -1,0 +1,18 @@
+{
+  "published_examples": [
+    {"input": "yes", "expected": "Yes"},
+    {"input": "YES", "expected": "Yes"},
+    {"input": "Yes", "expected": "Yes"}
+  ],
+  "smallest_supported_input": {
+    "input": "",
+    "expected": "No",
+    "description": "Empty string input (console newline)"
+  },
+  "boundary_cases": [
+    {"input": "yEs", "expected": "No", "description": "Mixed case variant outside target literals"},
+    {"input": "y", "expected": "No", "description": "Single-character prefix"},
+    {"input": "yes ", "expected": "No", "description": "Target string with trailing whitespace"},
+    {"input": "no", "expected": "No", "description": "Alternative response"}
+  ]
+}

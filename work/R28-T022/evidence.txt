@@ -1,0 +1,27 @@
+Environment & Tool Versions:
+Python: Python 3.15.2
+Platform: macOS 26.4 (Build 25E246, Darwin 25.4.0 arm64)
+
+Summary of Test Results:
+All assertions in work/R28-T022/check.py executed successfully against the authoritative source.
+
+1. Published Examples:
+- Input: "yes"   -> Expected: "Yes", Actual: "Yes" (MATCH)
+- Input: "YES"   -> Expected: "Yes", Actual: "Yes" (MATCH)
+- Input: "Yes"   -> Expected: "Yes", Actual: "Yes" (MATCH)
+
+2. Smallest Supported Input:
+- Input: "" (empty line) -> Expected: "No", Actual: "No" (MATCH)
+Precondition: The condition requires exact equality with "yes", "YES", or "Yes". The empty string has length 0 and does not match any of the three target strings, so execution proceeds to the else branch and outputs "No".
+
+3. Boundary Cases:
+- Input: "yEs"  -> Expected: "No", Actual: "No" (MATCH, case-sensitive mismatch)
+- Input: "y"    -> Expected: "No", Actual: "No" (MATCH, partial match / prefix)
+- Input: "yes " -> Expected: "No", Actual: "No" (MATCH, trailing whitespace)
+- Input: "no"   -> Expected: "No", Actual: "No" (MATCH, distinct word)
+
+4. Deliberate Wrong-Result Verification:
+- Ran check with --wrong flag:
+  AssertionError raised on deliberate incorrect expectation, exited with non-zero exit code (code 1).
+- Internal self-test:
+  Mismatch against wrong expectation correctly caught and rejected.

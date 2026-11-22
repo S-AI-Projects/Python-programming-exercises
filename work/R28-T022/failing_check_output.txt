@@ -1,0 +1,20 @@
+Reading solution from: /Users/nipun/S&AI-Projects/Python-programming-exercises/Python-programming-exercises/work/R28-T022/../../100+ Python challenging programming exercises for Python 3.md
+Extracted code from markdown:
+---
+s = input()
+if s=="yes" or s=="YES" or s=="Yes":
+    print("Yes")
+else:
+    print("No")
+---
+
+[SIMULATING DELIBERATE FAILURE (--wrong flag active)]
+Input: 'yes' | Actual: 'Yes' | Deliberate Wrong Expected: 'No'
+Traceback (most recent call last):
+  File "/Users/nipun/S&AI-Projects/Python-programming-exercises/Python-programming-exercises/work/R28-T022/check.py", line 134, in <module>
+    main()
+    ~~~~^^
+  File "/Users/nipun/S&AI-Projects/Python-programming-exercises/Python-programming-exercises/work/R28-T022/check.py", line 67, in main
+    assert actual == "No", f"DELIBERATE FAILURE TRIGGERED: Output '{actual}' did not match deliberate wrong expected 'No'"
+           ^^^^^^^^^^^^^^
+AssertionError: DELIBERATE FAILURE TRIGGERED: Output 'Yes' did not match deliberate wrong expected 'No'
