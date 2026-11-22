@@ -163,6 +163,46 @@ Hints:
 If the output received is in decimal form, it should be rounded off to its nearest value (for example, if the output received is 26.0, it should be printed as 26)
 In case of input data being supplied to the question, it should be assumed to be a console input. 
 
+**Step-by-Step Expression Breakdown**:
+The expression `int(round(math.sqrt(2*c*float(d)/h)))` evaluates the formula $Q = \sqrt{\frac{2 \times C \times D}{H}}$ through the following pipeline:
+1. `float(d)`: Converts the input text token `d` to a floating-point number, allowing decimal values as well as whole numbers.
+2. `2*c*float(d)`: Multiplies from left to right: first $2 \times C$ (where $C=50$), then by $D$. For $D=100$, this gives $2 \times 50 \times 100.0 = 10000.0$.
+3. `/h`: Divides that numerator by $H=30$ to produce the radicand (the value under the square root). For $D=100$, $10000.0 / 30 = 333.3333333333333$.
+4. `math.sqrt(...)`: Computes the positive square root of the radicand.
+5. `round(...)`: Rounds the square root to the nearest whole number; with no `ndigits` argument, Python returns an integer.
+6. `int(...)`: Ensures the rounded result is an integer before converting it to a string. It is redundant for this `round` call, but is retained from the original solution.
+
+**Exact Intermediate Values for Published Input (`100,150,180`)**:
+- For $D = 100$:
+  - `float(d)`: $100.0$
+  - Numerator $2 \times 50 \times 100.0 = 10000.0$
+  - Radicand $\frac{10000.0}{30} \approx 333.3333333333333$
+  - Square root $\sqrt{333.3333333333333} \approx 18.257418583505537$
+  - `round(...)`: $18$
+  - `int(...)`: $18$
+- For $D = 150$:
+  - `float(d)`: $150.0$
+  - Numerator $2 \times 50 \times 150.0 = 15000.0$
+  - Radicand $\frac{15000.0}{30} = 500.0$
+  - Square root $\sqrt{500.0} \approx 22.360679774997898$
+  - `round(...)`: $22$
+  - `int(...)`: $22$
+- For $D = 180$:
+  - `float(d)`: $180.0$
+  - Numerator $2 \times 50 \times 180.0 = 18000.0$
+  - Radicand $\frac{18000.0}{30} = 600.0$
+  - Square root $\sqrt{600.0} \approx 24.49489742783178$
+  - `round(...)`: $24$
+  - `int(...)`: $24$
+- Joined Output: `18,22,24`
+
+**Smallest Supported Input**:
+- Since the square root requires $D \ge 0$, the smallest supported input is $D = 0$:
+  - `float(d)`: $0.0$
+  - Radicand: $\frac{2 \times 50 \times 0.0}{30} = 0.0$
+  - $\sqrt{0.0} = 0.0 \to \text{round} \to \text{int} \to 0$
+  - Output: `0`
+
 Solution:
 ```python
 import math

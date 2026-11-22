@@ -1,0 +1,49 @@
+{
+  "published_example": {
+    "input": "100,150,180",
+    "expected_output": "18,22,24",
+    "expected_values": [18, 22, 24],
+    "intermediate_values": [
+      {
+        "d": "100",
+        "float_d": 100.0,
+        "multiplication": 10000.0,
+        "division": 333.3333333333333,
+        "sqrt": 18.257418583505537,
+        "round": 18,
+        "int": 18
+      },
+      {
+        "d": "150",
+        "float_d": 150.0,
+        "multiplication": 15000.0,
+        "division": 500.0,
+        "sqrt": 22.360679774997898,
+        "round": 22,
+        "int": 22
+      },
+      {
+        "d": "180",
+        "float_d": 180.0,
+        "multiplication": 18000.0,
+        "division": 600.0,
+        "sqrt": 24.49489742783178,
+        "round": 24,
+        "int": 24
+      }
+    ]
+  },
+  "smallest_supported_input": {
+    "input": "0",
+    "expected_output": "0",
+    "expected_values": [0],
+    "intermediate_values": {
+      "float_d": 0.0,
+      "multiplication": 0.0,
+      "division": 0.0,
+      "sqrt": 0.0,
+      "round": 0,
+      "int": 0
+    }
+  }
+}

@@ -1,0 +1,17 @@
+$ python3 work/R28-T026/check.py --wrong
+Source: /Users/nipun/S&AI-Projects/Python-programming-exercises/Python-programming-exercises/100+ Python challenging programming exercises for Python 3.md
+Extracted published input: '100,150,180'
+Extracted published expected output: '18,22,24'
+Extracted solution code is executed as a subprocess.
+Question 6 solution code fence is balanced; no Markdown links are present.
+Actual output: '18,22,24\n'
+Deliberately wrong expected output: '18,22,25\n'
+Traceback (most recent call last):
+  File "/Users/nipun/S&AI-Projects/Python-programming-exercises/Python-programming-exercises/work/R28-T026/check.py", line 209, in <module>
+    main()
+    ~~~~^^
+  File "/Users/nipun/S&AI-Projects/Python-programming-exercises/Python-programming-exercises/work/R28-T026/check.py", line 163, in main
+    assert result.stdout == deliberately_wrong, (
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Deliberate failure: checker correctly rejected the wrong expected output
+Exit status: 1

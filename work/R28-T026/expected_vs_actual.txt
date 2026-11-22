@@ -1,0 +1,26 @@
+$ python3 work/R28-T026/check.py
+Source: /Users/nipun/S&AI-Projects/Python-programming-exercises/Python-programming-exercises/100+ Python challenging programming exercises for Python 3.md
+Extracted published input: '100,150,180'
+Extracted published expected output: '18,22,24'
+Extracted solution code is executed as a subprocess.
+Question 6 solution code fence is balanced; no Markdown links are present.
+
+Published example:
+  Input:           100,150,180
+  Expected output: '18,22,24\n'
+  Actual output:   '18,22,24\n'
+  Numerical value: [18, 22, 24]
+
+Intermediate values for the published example:
+  D=100: float=100.0, multiply=10000.0, divide=333.3333333333333, sqrt=18.257418583505537, round=18, int=18
+  D=150: float=150.0, multiply=15000.0, divide=500.0, sqrt=22.360679774997898, round=22, int=22
+  D=180: float=180.0, multiply=18000.0, divide=600.0, sqrt=24.49489742783178, round=24, int=24
+
+Smallest supported input:
+  Input:           0
+  Expected output: '0\n'
+  Actual output:   '0\n'
+  Intermediate:    {"d": "0", "divided": 0.0, "float_d": 0.0, "int": 0, "multiplied": 0.0, "round": 0, "sqrt": 0.0}
+
+All Question 6 checks passed.
+Exit status: 0

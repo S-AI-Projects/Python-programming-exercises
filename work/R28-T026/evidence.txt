@@ -1,0 +1,49 @@
+R28-T026 - Question 6 verification evidence
+
+Source and branch
+-----------------
+GitHub issue: https://github.com/S-AI-Projects/Python-programming-exercises/issues/29
+Canonical source: 100+ Python challenging programming exercises for Python 3.md
+Source blob checked at upstream/master: c4ba62c46fae7f63f8ee8e72cdcfeb137696b192
+  (the upstream/master Markdown blob before the two existing R28-T026 commits)
+Branch: student/e26b07f0634/R28-T026
+HEAD before this completion commit: cde578f37fcc16c8c1b0c6a422941148957aea90
+Remote note: origin/student/e26b07f0634 points to d2b86afe2b15067bbe0af558d58546ab037e3b65
+  (prior Task 1 work); no remote R28-T026 branch exists. That branch was not changed.
+No push or pull request was created.
+
+Checks run
+----------
+$ python3 work/R28-T026/check.py
+Exit status: 0
+The checker extracts and executes the Question 6 solution from the Markdown itself,
+and extracts the published input and expected output from the same section.
+Published input: 100,150,180
+Expected numerical values: [18, 22, 24]
+Actual numerical values:   [18, 22, 24]
+Expected printed output:   '18,22,24\n'
+Actual printed output:     '18,22,24\n'
+Intermediate values are recorded in expected_vs_actual.txt and inputs.json.
+
+Smallest supported input (D >= 0 due to the square root): 0
+Expected numerical result: [0]
+Actual numerical result:   [0]
+Expected printed output:   '0\n'
+Actual printed output:     '0\n'
+
+$ python3 work/R28-T026/check.py --wrong
+Exit status: 1 (expected; rejects deliberate wrong result 18,22,25)
+Full failure output: failing_check_output.txt
+
+$ python3 -m json.tool work/R28-T026/inputs.json > /dev/null
+Exit status: 0
+$ python3 -c 'import ast; from pathlib import Path; ast.parse(Path("work/R28-T026/check.py").read_text(encoding="utf-8"))'
+Exit status: 0
+$ git diff --check
+Exit status: 0
+Question 6 Markdown structure: the solution code fence is balanced; the checker
+preserves and verifies the published example output. There are no Markdown links
+in the Question 6 section. No Markdown renderer or page-generation tool is present,
+so no rendered page was generated.
+
+Tool versions: see tool_versions.txt.
