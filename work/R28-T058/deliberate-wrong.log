@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/Users/ronit786/s-ai-project/Python-programming-exercises/work/R28-T058/check.py", line 130, in <module>
+    main()
+    ~~~~^^
+  File "/Users/ronit786/s-ai-project/Python-programming-exercises/work/R28-T058/check.py", line 81, in main
+    assert_printed(out, want_l, want_d)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ronit786/s-ai-project/Python-programming-exercises/work/R28-T058/check.py", line 38, in assert_printed
+    assert out == f"LETTERS {letters}\nDIGITS {digits}\n", f"printed {out!r}, expected LETTERS {letters} / DIGITS {digits}"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: printed 'LETTERS 10\nDIGITS 3\n', expected LETTERS 10 / DIGITS 4

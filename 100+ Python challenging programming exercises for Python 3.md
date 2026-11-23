@@ -335,6 +335,12 @@ DIGITS 3
 
 Hints:
 In case of input data being supplied to the question, it should be assumed to be a console input.
+The program reads one line and counts the characters for which `isalpha()` or `isdigit()` is true; everything else, such as spaces and punctuation, is ignored. Both methods follow Unicode rules, not just a-z and 0-9. For example, if the input is `café ²`, the output is:
+```
+LETTERS 4
+DIGITS 1
+```
+Here `é` counts as a letter and `²` as a digit, but `½` would not be counted at all. An empty line gives `LETTERS 0` and `DIGITS 0`, no input at all raises `EOFError`, and only the first line is read.
 
 Solution:
 ```python
