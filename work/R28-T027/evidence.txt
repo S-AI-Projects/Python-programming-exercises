@@ -1,0 +1,59 @@
+R28-T027 - Question 42 verification evidence
+
+Source and branch
+-----------------
+Issue: https://github.com/S-AI-Projects/Python-programming-exercises/issues/30
+Authoritative source: 100+ Python challenging programming exercises for Python 3.md
+Source commit: d6e381fa6090469e59b7d54dc0cbbabf46450fc5 (upstream/master)
+Source file blob before Task 7 edits: c4ba62c46fae7f63f8ee8e72cdcfeb137696b192
+Local branch: R28-T027
+Base: upstream/master
+Task 7 changes are isolated to Question 42 and work/R28-T027/.
+No existing task branch or previous task evidence was modified.
+No pull request was created.
+
+Published example
+-----------------
+Source code extracted and executed by check.py:
+tp=(1,2,3,4,5,6,7,8,9,10)
+tp1=tp[:5]
+tp2=tp[5:]
+print(tp1)
+print(tp2)
+
+Expected output: '(1, 2, 3, 4, 5)\n(6, 7, 8, 9, 10)\n'
+Actual output:   '(1, 2, 3, 4, 5)\n(6, 7, 8, 9, 10)\n'
+tp1 and tp2 are tuples with the expected values; tp is unchanged.
+
+Smallest meaningful demonstration
+---------------------------------
+The smallest tuple that can split into two non-empty slices has two elements.
+The Markdown example uses (1, 2), slicing at index 1:
+first = (1,), last = (2,)
+Both slices are tuples; concatenation reconstructs the original tuple.
+Expected output: '(1,)\n(2,)\n'
+Actual output:   '(1,)\n(2,)\n'
+
+Checks
+------
+$ python3 work/R28-T027/check.py
+Exit status: 0. Full output: expected_vs_actual.txt
+
+$ python3 work/R28-T027/check.py --wrong
+Exit status: 1, as expected. The checker rejected an incorrect first slice.
+Full output: failing_check_output.txt
+
+$ python3 -m json.tool work/R28-T027/inputs.json > /dev/null
+Exit status: 0
+
+$ python3 -c 'import ast; from pathlib import Path; ast.parse(Path("work/R28-T027/check.py").read_text(encoding="utf-8"))'
+Exit status: 0
+
+$ git diff --check
+Exit status: 0
+
+Markdown has four balanced fenced blocks in Question 42. The displayed outputs
+match the checker. Question 42 has no hyperlinks to verify. No pandoc or
+markdown command-line renderer is available, so no page was rendered.
+
+Tool versions: see tool_versions.txt.

@@ -1,0 +1,21 @@
+$ python3 work/R28-T027/check.py
+Source: /Users/nipun/S&AI-Projects/Python-programming-exercises/Python-programming-exercises/100+ Python challenging programming exercises for Python 3.md
+Both Python examples were extracted from Question 42 and executed.
+
+Published tuple:
+  tp:  (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+  tp1: (1, 2, 3, 4, 5) (tuple)
+  tp2: (6, 7, 8, 9, 10) (tuple)
+  Expected output: '(1, 2, 3, 4, 5)\n(6, 7, 8, 9, 10)\n'
+  Actual output:   '(1, 2, 3, 4, 5)\n(6, 7, 8, 9, 10)\n'
+  Original tp remains unchanged: verified.
+
+Smallest meaningful demonstration:
+  tuple:  (1, 2)
+  first:  (1,) (tuple)
+  second: (2,) (tuple)
+  Expected output: '(1,)\n(2,)\n'
+  Actual output:   '(1,)\n(2,)\n'
+
+All Question 42 checks passed.
+Exit status: 0

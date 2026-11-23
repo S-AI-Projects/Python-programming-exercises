@@ -1,0 +1,23 @@
+$ python3 work/R28-T027/check.py --wrong
+Actual published output: '(1, 2, 3, 4, 5)\n(6, 7, 8, 9, 10)\n'
+Deliberately wrong expected output: '(1, 2, 3, 4, 6)\n(6, 7, 8, 9, 10)\n'
+Traceback (most recent call last):
+  File "/Users/nipun/S&AI-Projects/Python-programming-exercises/Python-programming-exercises/work/R28-T027/check.py", line 178, in <module>
+    main()
+    ~~~~^^
+  File "/Users/nipun/S&AI-Projects/Python-programming-exercises/Python-programming-exercises/work/R28-T027/check.py", line 145, in main
+    verify_output(
+    ~~~~~~~~~~~~~^
+        published_result.stdout,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+        incorrect_expected,
+        ^^^^^^^^^^^^^^^^^^^
+        "Deliberate wrong-result check",
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/nipun/S&AI-Projects/Python-programming-exercises/Python-programming-exercises/work/R28-T027/check.py", line 85, in verify_output
+    assert actual == expected, (
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: Deliberate wrong-result check printed output mismatch: expected '(1, 2, 3, 4, 6)\n(6, 7, 8, 9, 10)\n', got '(1, 2, 3, 4, 5)\n(6, 7, 8, 9, 10)\n'
+Exit status: 1

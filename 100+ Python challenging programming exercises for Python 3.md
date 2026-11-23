@@ -1043,6 +1043,41 @@ Hints:
 
 Use [n1:n2] notation to get a slice from a tuple.
 
+**Step-by-Step Derivation**:
+
+The original tuple `tp` contains ten elements, with indices from `0` through `9`.
+
+- `tp[:5]` omits the start index (so it starts at `0`) and stops just before index `5`. The selected indices are `0` through `4`, so `tp1` is `(1, 2, 3, 4, 5)`.
+- `tp[5:]` starts at index `5` and omits the stop index (so it continues to the end). The selected indices are `5` through `9`, so `tp2` is `(6, 7, 8, 9, 10)`.
+
+The first slice covers indices `[0, 5)` and the second covers `[5, 10)`. These ranges meet at the boundary but do not overlap: index `5` is excluded from the first and included in the second. Together they cover every original index once. Slicing returns tuples and does not modify `tp`; after both slices, `tp` remains `(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)`.
+
+The displayed result is:
+```text
+(1, 2, 3, 4, 5)
+(6, 7, 8, 9, 10)
+```
+
+**Smallest Meaningful Demonstration**:
+
+Two elements are the smallest tuple that can be split into two non-empty slices. This no-input demonstration uses the midpoint, checks that both results are tuples with the expected values, and verifies that joining the slices reconstructs the unchanged original tuple.
+```python
+smallest = (1, 2)
+first = smallest[:1]
+last = smallest[1:]
+assert type(first) is tuple and first == (1,)
+assert type(last) is tuple and last == (2,)
+assert first + last == smallest
+assert smallest == (1, 2)
+print(first)
+print(last)
+```
+It displays:
+```text
+(1,)
+(2,)
+```
+
 Solution
 ```python
 tp=(1,2,3,4,5,6,7,8,9,10)

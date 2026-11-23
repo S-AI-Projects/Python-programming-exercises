@@ -1,0 +1,14 @@
+{
+  "published_example": {
+    "tuple": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    "first_slice": [1, 2, 3, 4, 5],
+    "last_slice": [6, 7, 8, 9, 10],
+    "expected_stdout": "(1, 2, 3, 4, 5)\n(6, 7, 8, 9, 10)\n"
+  },
+  "smallest_demonstration": {
+    "tuple": [1, 2],
+    "first_slice": [1],
+    "last_slice": [2],
+    "expected_stdout": "(1,)\n(2,)\n"
+  }
+}
