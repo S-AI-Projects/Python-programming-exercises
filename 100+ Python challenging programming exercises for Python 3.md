@@ -596,6 +596,16 @@ Then, the output of the program should be:
 
 Hints:
 In case of input data being supplied to the question, it should be assumed to be a console input.
+The program reads lines until it gets an empty line, so end the input with an empty line. If the input ends without one (for example when it is piped from a file), `input()` raises `EOFError`. With no movements at all (just an empty line) the robot stays at (0,0) and 0 is printed. Directions must be written in capital letters; any other word is ignored.
+`pos[0]` is the vertical position and `pos[1]` the horizontal one. Derivation for the example:
+```
+pos = [0, 0]
+UP 5    -> pos[0] += 5 -> [5, 0]
+DOWN 3  -> pos[0] -= 3 -> [2, 0]
+LEFT 3  -> pos[1] -= 3 -> [2, -3]
+RIGHT 2 -> pos[1] += 2 -> [2, -1]
+sqrt(2**2 + (-1)**2) = sqrt(5) = 2.236..., which round() turns into 2
+```
 
 Solution:
 

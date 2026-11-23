@@ -1,0 +1,77 @@
+{
+  "source": "100+ Python challenging programming exercises for Python 3.md",
+  "md_sha256": "d07f217660b30d0671ac78a7f70ab8d1ccabdd9b74a79845e09879353612c2b8",
+  "solution": "import math\npos = [0,0]\nwhile True:\n    s = input()\n    if not s:\n        break\n    movement = s.split(\" \")\n    direction = movement[0]\n    steps = int(movement[1])\n    if direction==\"UP\":\n        pos[0]+=steps\n    elif direction==\"DOWN\":\n        pos[0]-=steps\n    elif direction==\"LEFT\":\n        pos[1]-=steps\n    elif direction==\"RIGHT\":\n        pos[1]+=steps\n    else:\n        pass\n\nprint(int(round(math.sqrt(pos[1]**2+pos[0]**2))))\n",
+  "cases": [
+    {
+      "input": "'UP 5\\nDOWN 3\\nLEFT 3\\nRIGHT 2\\n\\n'",
+      "expected": "'2\\n'",
+      "actual": "'2\\n'"
+    },
+    {
+      "input": "published example with print(pos) added after the if/elif chain",
+      "expected": "[5, 0], [2, 0], [2, -3], [2, -1], then 2",
+      "actual": "[5, 0] | [2, 0] | [2, -3] | [2, -1] | 2"
+    },
+    {
+      "input": "'UP 5\\nDOWN 3\\nLEFT 3\\nRIGHT 2\\n' (no empty line)",
+      "expected": "EOFError, nothing printed",
+      "actual": "exit 1: EOFError: EOF when reading a line"
+    },
+    {
+      "input": "'\\n'  # smallest: just an empty line",
+      "expected": "'0\\n'",
+      "actual": "'0\\n'"
+    },
+    {
+      "input": "'UP 1\\n\\n'  # single step",
+      "expected": "'1\\n'",
+      "actual": "'1\\n'"
+    },
+    {
+      "input": "'UP 3\\nRIGHT 4\\n\\n'  # exact 3-4-5, prints 5 not 5.0",
+      "expected": "'5\\n'",
+      "actual": "'5\\n'"
+    },
+    {
+      "input": "'UP 1\\nRIGHT 1\\n\\n'  # sqrt(2)=1.41 rounds down",
+      "expected": "'1\\n'",
+      "actual": "'1\\n'"
+    },
+    {
+      "input": "'UP 2\\nRIGHT 2\\n\\n'  # sqrt(8)=2.83 rounds up",
+      "expected": "'3\\n'",
+      "actual": "'3\\n'"
+    },
+    {
+      "input": "'LEFT 5\\n\\n'  # negative axis, distance is positive",
+      "expected": "'5\\n'",
+      "actual": "'5\\n'"
+    },
+    {
+      "input": "'UP 5\\nDOWN 5\\n\\n'  # back at the origin",
+      "expected": "'0\\n'",
+      "actual": "'0\\n'"
+    },
+    {
+      "input": "'UP 10\\nDOWN 3\\nLEFT 3\\nRIGHT 2\\n\\n'  # sqrt(50)=7.07",
+      "expected": "'7\\n'",
+      "actual": "'7\\n'"
+    },
+    {
+      "input": "'UP 5\\nSIDEWAYS 7\\n\\n'  # unknown direction ignored",
+      "expected": "'5\\n'",
+      "actual": "'5\\n'"
+    },
+    {
+      "input": "'up 5\\n\\n'  # lowercase direction ignored",
+      "expected": "'0\\n'",
+      "actual": "'0\\n'"
+    }
+  ],
+  "tools": {
+    "python": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "platform": "macOS-27.2.1-arm64-arm-64bit-Mach-O",
+    "git": "git version 2.55.0"
+  }
+}

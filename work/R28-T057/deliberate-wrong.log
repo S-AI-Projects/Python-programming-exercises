@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/Users/ronit786/s-ai-project/Python-programming-exercises/work/R28-T057/check.py", line 135, in <module>
+    main()
+    ~~~~^^
+  File "/Users/ronit786/s-ai-project/Python-programming-exercises/work/R28-T057/check.py", line 82, in main
+    assert_printed(cp.stdout, want_example)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ronit786/s-ai-project/Python-programming-exercises/work/R28-T057/check.py", line 35, in assert_printed
+    assert out == want + "\n", f"printed {out!r}, expected {want + chr(10)!r}"
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: printed '2\n', expected '3\n'
