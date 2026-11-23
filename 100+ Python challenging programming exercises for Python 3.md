@@ -1649,6 +1649,7 @@ Please write assert statements to verify that every number in the list [2,4,6,8]
 
 Hints:
 Use "assert expression" to make assertion.
+The program prints nothing when every number is even. For a list such as [2,4,6,7] it stops with AssertionError at the odd number 7. An empty list [] also passes, because there is no number to check. Assertions are skipped when Python is run with the -O option.
 
 Solution:
 ```python
