@@ -1,0 +1,20 @@
+[
+  {
+    "name": "published_example",
+    "input": [
+      12,
+      24,
+      35,
+      70,
+      88,
+      120,
+      155
+    ]
+  },
+  {
+    "name": "smallest_supported_input",
+    "input": [
+      12
+    ]
+  }
+]

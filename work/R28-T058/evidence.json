@@ -1,0 +1,88 @@
+{
+  "source": "100+ Python challenging programming exercises for Python 3.md",
+  "md_sha256": "2ee32e094c9e0376b86e90322dddb331ac001f3fa33c85d6006aaf0d626f8b55",
+  "solution": "s = input()\nd={\"DIGITS\":0, \"LETTERS\":0}\nfor c in s:\n    if c.isdigit():\n        d[\"DIGITS\"]+=1\n    elif c.isalpha():\n        d[\"LETTERS\"]+=1\n    else:\n        pass\nprint(\"LETTERS\", d[\"LETTERS\"])\nprint(\"DIGITS\", d[\"DIGITS\"])\n",
+  "cases": [
+    {
+      "input": "'hello world! 123\\n'",
+      "expected": "'LETTERS 10\\nDIGITS 3\\n'",
+      "actual": "'LETTERS 10\\nDIGITS 3\\n'"
+    },
+    {
+      "input": "'\\n'",
+      "expected": "'LETTERS 0\\nDIGITS 0\\n'",
+      "actual": "'LETTERS 0\\nDIGITS 0\\n'"
+    },
+    {
+      "input": "''",
+      "expected": "EOFError, nothing printed",
+      "actual": "exit 1: EOFError: EOF when reading a line"
+    },
+    {
+      "input": "'café ²\\n'",
+      "expected": "'LETTERS 4\\nDIGITS 1\\n'",
+      "actual": "'LETTERS 4\\nDIGITS 1\\n'",
+      "note": "U+00E9 counts as a letter, U+00B2 as a digit, U+00BD not at all"
+    },
+    {
+      "input": "'中文 ٣٤\\n'",
+      "expected": "LETTERS 2 / DIGITS 2",
+      "actual": "'LETTERS 2\\nDIGITS 2\\n'"
+    },
+    {
+      "input": "'straße\\n'",
+      "expected": "LETTERS 6 / DIGITS 0",
+      "actual": "'LETTERS 6\\nDIGITS 0\\n'"
+    },
+    {
+      "input": "'½ Ⅷ ¹\\n'",
+      "expected": "LETTERS 0 / DIGITS 1",
+      "actual": "'LETTERS 0\\nDIGITS 1\\n'"
+    },
+    {
+      "input": "'abc\\n123\\n'",
+      "expected": "'LETTERS 3\\nDIGITS 0\\n' (second line unread)",
+      "actual": "'LETTERS 3\\nDIGITS 0\\n'"
+    },
+    {
+      "input": "'abc123\\n'",
+      "expected": "LETTERS 3 / DIGITS 3 (regex count)",
+      "actual": "'LETTERS 3\\nDIGITS 3\\n'"
+    },
+    {
+      "input": "'A1b2C3\\n'",
+      "expected": "LETTERS 3 / DIGITS 3 (regex count)",
+      "actual": "'LETTERS 3\\nDIGITS 3\\n'"
+    },
+    {
+      "input": "'!!! ???\\n'",
+      "expected": "LETTERS 0 / DIGITS 0 (regex count)",
+      "actual": "'LETTERS 0\\nDIGITS 0\\n'"
+    },
+    {
+      "input": "'   \\n'",
+      "expected": "LETTERS 0 / DIGITS 0 (regex count)",
+      "actual": "'LETTERS 0\\nDIGITS 0\\n'"
+    },
+    {
+      "input": "'a_b-c\\n'",
+      "expected": "LETTERS 3 / DIGITS 0 (regex count)",
+      "actual": "'LETTERS 3\\nDIGITS 0\\n'"
+    },
+    {
+      "input": "'Python 3.12\\n'",
+      "expected": "LETTERS 6 / DIGITS 3 (regex count)",
+      "actual": "'LETTERS 6\\nDIGITS 3\\n'"
+    },
+    {
+      "input": "'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx77777\\n'",
+      "expected": "LETTERS 50 / DIGITS 5 (regex count)",
+      "actual": "'LETTERS 50\\nDIGITS 5\\n'"
+    }
+  ],
+  "tools": {
+    "python": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "platform": "macOS-27.2.1-arm64-arm-64bit-Mach-O",
+    "git": "git version 2.55.0"
+  }
+}

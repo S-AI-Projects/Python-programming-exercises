@@ -1,0 +1,57 @@
+{
+  "extracted_code": "li = [12, 24, 35, 70, 88, 120, 155]\nli = [x for (i, x) in enumerate(li) if i % 2 != 0]\nprint(li)",
+  "cases": [
+    {
+      "case": "published_example",
+      "input": [
+        12,
+        24,
+        35,
+        70,
+        88,
+        120,
+        155
+      ],
+      "expected": [
+        24,
+        70,
+        120
+      ],
+      "actual": [
+        24,
+        70,
+        120
+      ],
+      "raw_stdout": "[24, 70, 120]",
+      "passed": true
+    },
+    {
+      "case": "smallest_supported_input",
+      "input": [
+        12
+      ],
+      "expected": [],
+      "actual": [],
+      "raw_stdout": "[]",
+      "passed": true
+    }
+  ],
+  "one_operation_mutant": {
+    "mutation": "i % 2 != 0 -> i % 2 == 0",
+    "published_input_output": [
+      12,
+      35,
+      88,
+      155
+    ],
+    "smallest_input_output": [
+      12
+    ],
+    "distinguished": true
+  },
+  "deliberate_wrong_result_check": {
+    "returncode": 1,
+    "failed_as_expected": true,
+    "stderr_summary": "AssertionError: Deliberate mismatch: [24, 70, 120]"
+  }
+}
