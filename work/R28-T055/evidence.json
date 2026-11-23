@@ -1,0 +1,40 @@
+{
+  "source": "100+ Python challenging programming exercises for Python 3.md",
+  "md_sha256": "b9cf382f4b2356a0fc8b5abd51c54b553a9fa632fdc7897cc8c466c558181133",
+  "solution": "print(abs.__doc__)\nprint(int.__doc__)\nprint(input.__doc__)\n\ndef square(num):\n    '''Return the square value of the input number.\n    \n    The input number must be integer.\n    '''\n    return num ** 2\n\nprint(square(2)) #4\nprint(square.__doc__)\n",
+  "cases": [
+    {
+      "interpreter": "3.14",
+      "input": "published block, unchanged, python -I",
+      "expected": "abs/int/input docs of this interpreter, '4\\n', square doc (dedented), newline",
+      "actual_tail": "line is used if available.\n4\nReturn the square value of the input number.\n\nThe input number must be integer.\n\n",
+      "builtin_docs_sha256": "4d4aa2f39965"
+    },
+    {
+      "interpreter": "3.14",
+      "input": "python -I -OO / PYTHONOPTIMIZE=2 without -I",
+      "expected": "square doc prints None",
+      "actual_tail": "ble.\n4\nNone\n"
+    },
+    {
+      "interpreter": "3.14",
+      "input": "square(0) smallest, plus 1, -1, 2, -5, 5, 10**20",
+      "expected": "n*n then the square doc",
+      "actual": "all equal"
+    },
+    {
+      "interpreter": "3.14",
+      "input": "square(1.5); square(\"2\"); raw_input",
+      "expected": "2.25; TypeError; NameError",
+      "actual": "2.25; TypeError: unsupported operand type(s) f; NameError: name 'raw_input' is not defined"
+    }
+  ],
+  "interpreters_tested": [
+    "3.14"
+  ],
+  "tools": {
+    "python": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "platform": "macOS-27.2.1-arm64-arm-64bit-Mach-O",
+    "git": "git version 2.55.0"
+  }
+}

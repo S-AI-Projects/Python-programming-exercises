@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "/Users/ronit786/s-ai-project/Python-programming-exercises/work/R28-T055/check.py", line 155, in <module>
+    main()
+    ~~~~^^
+  File "/Users/ronit786/s-ai-project/Python-programming-exercises/work/R28-T055/check.py", line 132, in main
+    tested = [check_interpreter(sys.executable, solution, raw_doc, removed_ver, comment, hint_a, hint_b, ev)]
+              ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ronit786/s-ai-project/Python-programming-exercises/work/R28-T055/check.py", line 73, in check_interpreter
+    assert_stdout(out)
+    ~~~~~~~~~~~~~^^^^^
+  File "/Users/ronit786/s-ai-project/Python-programming-exercises/work/R28-T055/check.py", line 59, in assert_stdout
+    assert out == expected, f"[{tag}] stdout {out[-120:]!r}\n expected tail {expected[-120:]!r}"
+           ^^^^^^^^^^^^^^^
+AssertionError: [3.14] stdout 'tems, readline is used if available.\n4\nReturn the square value of the input number.\n\nThe input number must be integer.\n\n'
+ expected tail 'ne is used if available.\n4\nReturn the square value of the input number.\n    \n    The input number must be integer.\n    \n'

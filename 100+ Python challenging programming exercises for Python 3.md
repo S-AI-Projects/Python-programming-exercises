@@ -692,6 +692,8 @@ Please write a program to print some Python built-in functions documents, such a
 And add document for your own function
 Hints:
 The built-in document method is __doc__
+In Python 3, `raw_input()` from the question is called `input()`. `print(abs.__doc__)` shows the text stored with the function, so the built-in documents you see depend on your Python version. `square(2)` prints 4, then `print(square.__doc__)` prints the string written right after `def`: Python 3.11 and 3.12 keep its indentation, Python 3.13 removes it. With `python -OO` docstrings are removed and `square.__doc__` is `None`.
+The docstring asks for an integer, but `square` does not check: `square(1.5)` prints 2.25 and `square("2")` raises TypeError.
 
 Solution:
 ```python
@@ -706,7 +708,7 @@ def square(num):
     '''
     return num ** 2
 
-print(square(2))
+print(square(2)) #4
 print(square.__doc__)
 ```
 ### Question 25
