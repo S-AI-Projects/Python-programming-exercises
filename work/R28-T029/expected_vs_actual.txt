@@ -1,0 +1,17 @@
+$ python3 work/R28-T029/check.py
+Source: /Users/nipun/S&AI-Projects/Python-programming-exercises/Python-programming-exercises/100+ Python challenging programming exercises for Python 3.md
+Published example:
+  Input: 7
+  Expected: '13\n'
+  Actual:   '13\n'
+Smallest supported input:
+  Input: 0
+  Expected: '0\n'
+  Actual:   '0\n'
+Call-count experiment:
+n=3: result=2; total calls=5; calls to f(5)=0
+n=5: result=5; total calls=15; calls to f(5)=1
+n=7: result=13; total calls=41; calls to f(5)=2
+Time/space complexity and no-memoization explanation: verified.
+All Question 66 checks passed.
+Exit status: 0

@@ -1,0 +1,46 @@
+Task R28-T029 — Question 66 evidence
+
+Source and branch
+- The source section is Question 66 in the Markdown article.
+- Baseline: upstream/master at d6e381fa6090469e59b7d54dc0cbbabf46450fc5.
+- Working branch: R28-T029.
+- The published recursive function and example are extracted from the article by check.py.
+
+Published example
+- Command: python3 work/R28-T029/check.py
+- Input: 7
+- Expected output: '13\n'
+- Actual output:   '13\n'
+- Numerical result: 13
+
+Smallest supported input
+- Input: 0
+- Expected output: '0\n'
+- Actual output:   '0\n'
+- Numerical result: 0
+
+Separate call-count experiment
+- n=3: result=2; total calls=5; calls to f(5)=0
+- n=5: result=5; total calls=15; calls to f(5)=1
+- n=7: result=13; total calls=41; calls to f(5)=2
+- The increasing call counts follow the recursive call tree, whose count satisfies
+  C(0)=C(1)=1 and C(n)=1+C(n-1)+C(n-2). This supports exponential work
+  (Theta(phi^n), with O(2^n) as an upper bound); it is not a timing-based proof.
+  The deepest recursive path has O(n) active call frames.
+
+Deliberate negative test
+- Command: python3 work/R28-T029/check.py --wrong
+- The actual published output was '13\n'; the deliberately incorrect expectation
+  was '14\n'.
+- The checker failed with AssertionError as intended (exit status 1).
+
+Validation and environment
+- The successful checker confirmed the exact outputs, numeric values, experiment
+  observations, and required complexity/no-caching explanation.
+- The checker found four balanced fenced code blocks in Question 66.
+- Python: 3.15.2
+- Git: 2.50.1 (Apple Git-155)
+- macOS: 26.4 (25E246)
+- No Python 2 runtime was found.
+- No pandoc or markdown CLI renderer was found, so rendered-page verification was
+  unavailable.

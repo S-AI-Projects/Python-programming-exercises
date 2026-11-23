@@ -1,0 +1,12 @@
+$ python3 work/R28-T029/check.py --wrong
+Actual published output: '13\n'
+Deliberately wrong expected output: '14\n'
+Traceback (most recent call last):
+  File "/Users/nipun/S&AI-Projects/Python-programming-exercises/Python-programming-exercises/work/R28-T029/check.py", line 191, in <module>
+    main()
+    ~~~~^^
+  File "/Users/nipun/S&AI-Projects/Python-programming-exercises/Python-programming-exercises/work/R28-T029/check.py", line 151, in main
+    assert published.stdout == wrong_output, (
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Deliberate negative test: actual output did not match the wrong result
+Exit status: 1

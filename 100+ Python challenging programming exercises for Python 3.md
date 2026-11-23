@@ -1526,6 +1526,58 @@ In case of input data being supplied to the question, it should be assumed to be
 Hints:
 We can define recursive function in Python.
 
+**How the Recursive Calls Work**:
+
+The base cases stop the recursion: `f(0)` returns `0` and `f(1)` returns `1` without making more calls. For `n > 1`, the function calls itself with `n-1` and `n-2`, then adds those results. For example, the published input starts with `f(7) = f(6) + f(5)`, while `f(6)` also calls `f(5)`. The same value is therefore calculated in separate branches instead of being reused.
+
+The recursion tree grows exponentially. If `C(n)` is the number of calls, then `C(0) = C(1) = 1` and `C(n) = 1 + C(n-1) + C(n-2)`. This grows as `Theta(phi^n)` (where `phi` is the golden ratio), so `O(2^n)` is a valid, simpler upper bound for running time. This is the recursive call structure, not a conclusion based on measured seconds.
+
+Along the deepest path, `n` decreases by one until it reaches `0`, so at most `n+1` calls are active at once. The usual auxiliary-space measure is therefore `O(n)` call-stack frames. This counts frames as constant-size; Python's arbitrary-precision integer values themselves require more bits as their values grow.
+
+This solution is the direct recursive version: it has no loop and does not cache earlier results. An iterative or memoized implementation avoids recalculating the same Fibonacci values, but is not the algorithm shown here.
+
+**Small Call-Count Experiment**:
+
+The following is a separate instrumented experiment, not a replacement for the published `f`. It follows the same recurrence and counts how many times the experimental function is entered. No execution times are used as evidence for complexity.
+```python
+from collections import Counter
+
+calls = Counter()
+def counted_f(n):
+    calls[n] += 1
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return counted_f(n - 1) + counted_f(n - 2)
+
+for n in (3, 5, 7):
+    calls.clear()
+    result = counted_f(n)
+    print(
+        f"n={n}: result={result}; total calls={sum(calls.values())}; "
+        f"calls to f(5)={calls[5]}"
+    )
+```
+The observed calls are:
+```text
+n=3: result=2; total calls=5; calls to f(5)=0
+n=5: result=5; total calls=15; calls to f(5)=1
+n=7: result=13; total calls=41; calls to f(5)=2
+```
+For `n=7`, `f(5)` is evaluated twice in different branches, illustrating the repeated work.
+
+**Smallest Supported Input**:
+
+The recurrence defines non-negative `n`; its smallest supported input is `0`. The base case returns and prints `0`.
+```text
+Input:
+0
+Output:
+0
+```
+
 
 Solution:
 ```python

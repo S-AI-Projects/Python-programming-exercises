@@ -1,0 +1,16 @@
+$ python3 --version
+Python 3.15.2
+
+$ git --version
+git version 2.50.1 (Apple Git-155)
+
+$ sw_vers
+ProductName:		macOS
+ProductVersion:		26.4
+BuildVersion:		25E246
+
+Renderer availability
+No pandoc or markdown CLI found
+
+Python 2 availability
+No Python 2 runtime found

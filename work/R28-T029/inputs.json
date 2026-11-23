@@ -1,0 +1,35 @@
+{
+  "published": {
+    "input": "7",
+    "result": 13,
+    "expected_output": "13\n"
+  },
+  "smallest": {
+    "input": "0",
+    "result": 0,
+    "expected_output": "0\n"
+  },
+  "call_count": {
+    "cases": [
+      {
+        "input": 3,
+        "result": 2,
+        "total_calls": 5,
+        "calls_to_f5": 0
+      },
+      {
+        "input": 5,
+        "result": 5,
+        "total_calls": 15,
+        "calls_to_f5": 1
+      },
+      {
+        "input": 7,
+        "result": 13,
+        "total_calls": 41,
+        "calls_to_f5": 2
+      }
+    ],
+    "expected_output": "n=3: result=2; total calls=5; calls to f(5)=0\nn=5: result=5; total calls=15; calls to f(5)=1\nn=7: result=13; total calls=41; calls to f(5)=2\n"
+  }
+}
