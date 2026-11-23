@@ -1136,11 +1136,12 @@ Hints:
 
 Use filter() to filter elements of a list.
 Use lambda to define anonymous functions.
+In Python 3, `filter()` returns an iterator, not a list, so `print(evenNumbers)` would show something like `<filter object at 0x...>` instead of the numbers. `list()` reads the iterator and collects the values. The lambda is checked for each of the 20 numbers from 1 to 20 and keeps the 10 even ones, but only when `list()` reads them. The iterator can be read only once: a second `list(evenNumbers)` gives `[]`.
 
 Solution
 ```python
 evenNumbers = filter(lambda x: x%2==0, range(1,21))
-print(evenNumbers)
+print(list(evenNumbers)) #[2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
 ```
 
 ### Question 49
