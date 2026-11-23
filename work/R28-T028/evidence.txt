@@ -1,0 +1,56 @@
+R28-T028 - Question 61 Unicode behavior evidence
+
+Source and branch
+-----------------
+Issue: https://github.com/S-AI-Projects/Python-programming-exercises/issues/31
+Article: 100+ Python challenging programming exercises for Python 3.md
+Source base: upstream/master at d6e381fa6090469e59b7d54dc0cbbabf46450fc5
+Article blob before Task 8 edits: c4ba62c46fae7f63f8ee8e72cdcfeb137696b192
+Local branch: R28-T028
+The issue contained no separate pinned commit SHA; its cited example matches this source.
+
+Published example
+-----------------
+The checker extracts and executes the Python code from Question 61.
+Expected output: 'hello world!\n'
+Actual output:   'hello world!\n'
+The resulting Python 3 value is type str, equal to "hello world!".
+
+Smallest demonstration
+----------------------
+The empty Unicode string u"" is the zero-character boundary case.
+Expected output: "''\n"
+Actual output:   "''\n"
+The value has length zero and is a Python 3 str.
+
+Text/bytes limitation
+---------------------
+Encoding the published text with UTF-8 produces bytes.
+Expected output: 'str\nbytes\nstr + bytes raises TypeError\n'
+Actual output:   'str\nbytes\nstr + bytes raises TypeError\n'
+Mixing Python 3 text and bytes raised TypeError as expected.
+
+Checks
+------
+$ python3 work/R28-T028/check.py
+Exit status: 0. Full output: expected_vs_actual.txt
+
+$ python3 work/R28-T028/check.py --wrong
+Exit status: 1, expected. Full output: failing_check_output.txt
+
+Python 3 u-prefix/text/bytes runtime fact was also checked in the selected
+Pylance interpreter (file:///opt/homebrew/bin/python3): u"hello world!" is str,
+encode("utf-8") is bytes, and str + bytes raises TypeError.
+
+Python documentation consulted:
+- https://docs.python.org/2/reference/lexical_analysis.html#string-literals
+- https://peps.python.org/pep-0414/
+- https://docs.python.org/3/reference/lexical_analysis.html#string-and-bytes-literals
+
+JSON validity, Python syntax, balanced Markdown fences, and git diff whitespace
+were checked. All Question 61 fences are balanced and the displayed outputs match
+the checker. The cited documentation URLs were retrieved successfully. No
+repository renderer or installed Markdown command-line renderer was available,
+so no rendered page was generated.
+
+Tool versions: see tool_versions.txt.

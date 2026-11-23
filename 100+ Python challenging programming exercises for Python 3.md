@@ -1405,13 +1405,64 @@ Print a unicode string "hello world".
 
 Hints:
 
-Use u'strings' format to define unicode string.
+In Python 2, the `u` prefix marks a string literal as Unicode. Python 3 keeps this prefix for compatibility with Python 2 code; it is accepted but not required because ordinary Python 3 `str` strings are Unicode already.
 
 Solution:
 ```python
 unicodeString = u"hello world!"
 print(unicodeString)
 ```
+Output:
+```text
+hello world!
+```
+
+**What the `u` Prefix Means**:
+
+In Python 2, an ordinary `"text"` literal is a byte string, while `u"text"` creates a Unicode string. The [`u` prefix was restored in Python 3.3](https://peps.python.org/pep-0414/) to make Unicode-aware Python 2 code easier to port. In Python 3, both `"text"` and `u"text"` create the same `str` type; the prefix is allowed, not an error, and has no extra effect.
+
+Python 3 `str` values represent Unicode text. They are not UTF-8 encoded bytes. Calling `unicodeString.encode("utf-8")` converts text to a `bytes` value; decoding bytes converts them back to text. The prefix `u` is not an encoding declaration and does not encode the string as UTF-8.
+
+A common misconception is that `u"..."` is invalid in Python 3, or that it means the value is already UTF-8 bytes. Neither is true. The published example is valid in Python 3 and prints the same text, `hello world!`.
+
+**Smallest Meaningful Demonstration**:
+
+An empty Unicode string has the fewest possible characters. In Python 3 it is still a `str`, and its representation prints as `''`:
+```python
+emptyUnicodeString = u""
+assert type(emptyUnicodeString) is str
+assert len(emptyUnicodeString) == 0
+print(repr(emptyUnicodeString))
+```
+Output:
+```text
+''
+```
+
+**Text and Bytes Are Different Types in Python 3**:
+
+Encoding the published text creates `bytes`. Python 3 does not implicitly concatenate text and bytes; mixing them raises `TypeError`. Decode the bytes first when text is needed.
+```python
+unicodeString = u"hello world!"
+encodedBytes = unicodeString.encode("utf-8")
+assert type(unicodeString) is str
+assert type(encodedBytes) is bytes
+print(type(unicodeString).__name__)
+print(type(encodedBytes).__name__)
+try:
+    unicodeString + encodedBytes
+except TypeError:
+    print("str + bytes raises TypeError")
+else:
+    raise AssertionError("Python 3 unexpectedly concatenated str and bytes")
+```
+Output:
+```text
+str
+bytes
+str + bytes raises TypeError
+```
+See the [Python 2 string-literal rules](https://docs.python.org/2/reference/lexical_analysis.html#string-literals), [PEP 414](https://peps.python.org/pep-0414), and [Python 3 string and bytes literals](https://docs.python.org/3/reference/lexical_analysis.html#string-and-bytes-literals).
 
 ### Question 62
 Write a program to read an ASCII string and to convert it to a unicode string encoded by utf-8.

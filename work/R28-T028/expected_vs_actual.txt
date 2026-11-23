@@ -1,0 +1,16 @@
+$ python3 work/R28-T028/check.py
+Source: /Users/nipun/S&AI-Projects/Python-programming-exercises/Python-programming-exercises/100+ Python challenging programming exercises for Python 3.md
+Published example:
+  Expected: 'hello world!\n'
+  Actual:   'hello world!\n'
+  Python 3 type str: verified.
+Smallest supported demonstration:
+  Empty Unicode string expected: "''\n"
+  Actual:                        "''\n"
+  Empty value and Python 3 str type: verified.
+Python 3 text/bytes limitation:
+  Expected: 'str\nbytes\nstr + bytes raises TypeError\n'
+  Actual:   'str\nbytes\nstr + bytes raises TypeError\n'
+  TypeError for str + bytes and explanation: verified.
+All Question 61 checks passed.
+Exit status: 0

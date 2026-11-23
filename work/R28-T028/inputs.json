@@ -1,0 +1,21 @@
+{
+  "published": {
+    "source_expression": "u\"hello world!\"",
+    "value": "hello world!",
+    "expected_stdout": "hello world!\n",
+    "python3_type": "str"
+  },
+  "smallest": {
+    "source_expression": "u\"\"",
+    "value": "",
+    "expected_stdout": "''\n",
+    "python3_type": "str",
+    "length": 0
+  },
+  "limitation": {
+    "source_expression": "unicodeString.encode(\"utf-8\")",
+    "encoded_bytes_repr": "b'hello world!'",
+    "expected_stdout": "str\nbytes\nstr + bytes raises TypeError\n",
+    "failure": "TypeError"
+  }
+}
