@@ -1,0 +1,15 @@
+{
+  "published": {
+    "input": "hello",
+    "expected_output": "hello\n"
+  },
+  "smallest": {
+    "input": "a",
+    "expected_output": "a\n"
+  },
+  "mutation": {
+    "operation": "replace u = s with u = s.encode(\"utf-8\")",
+    "actual_output": "b'hello'\n",
+    "expected_type": "bytes"
+  }
+}

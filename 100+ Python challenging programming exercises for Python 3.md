@@ -1418,13 +1418,43 @@ Write a program to read an ASCII string and to convert it to a unicode string en
 
 Hints:
 
-Use unicode() function to convert.
+In Python 3, `input()` already returns text as a `str`, and `str` represents Unicode text. No conversion is needed for this input.
+
+**Python 2 and Python 3**:
+
+The original `unicode(s, "utf-8")` form uses Python 2's `unicode()` built-in to decode UTF-8 bytes into Unicode text. Python 3 has no `unicode()` built-in, so that call raises `NameError`.
+
+In Python 3, `s = input()` gives `s` the type `str`. Assigning `u = s` keeps the same Unicode text; it does not encode or decode anything. The variable name `u` does not change the value's type.
+
+Unicode text and UTF-8 bytes are different: `text.encode("utf-8")` converts a `str` to `bytes`, while `data.decode("utf-8")` converts UTF-8 `bytes` to a `str`. Neither operation is needed for the ASCII text read in this exercise.
 
 Solution:
 ```python
 s = input()
-u = unicode( s ,"utf-8")
+u = s
 print(u)
+```
+
+**Example**:
+
+Input: `hello`
+
+Intermediate: `s` is `"hello"` with type `str`; `u = s` assigns that same Unicode string to `u`, which also has type `str`.
+
+Output:
+```text
+hello
+```
+
+**Smallest Non-Empty Input**:
+
+Input: `a`
+
+It is read as a `str` and printed without conversion.
+
+Output:
+```text
+a
 ```
 
 ### Question 63

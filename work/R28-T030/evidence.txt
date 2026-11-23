@@ -1,0 +1,48 @@
+Task R28-T030 - Question 62 evidence
+
+Source and branch
+- Baseline: upstream/master at d6e381fa6090469e59b7d54dc0cbbabf46450fc5.
+- Working branch: R28-T030.
+- The Markdown source was edited only in the Question 62 section.
+- check.py extracts the Question 62 solution and examples between the Question 62
+  and Question 63 headings.
+
+Published demonstration
+- Command: python3 work/R28-T030/check.py
+- Input: hello
+- Expected output: 'hello\n'
+- Actual output:   'hello\n'
+- The extracted solution passed assertions that s and u are str, equal, and the
+  same object.
+
+Smallest non-empty input
+- Input: a
+- Expected output: 'a\n'
+- Actual output:   'a\n'
+
+Mutation test
+- The checker changes exactly one extracted operation in memory:
+  u = s becomes u = s.encode("utf-8").
+- The mutant printed "b'hello'\n" instead of 'hello\n' and failed the
+  type(u) is str assertion with subprocess exit status 1.
+- check.py passed only after confirming the mutant was rejected. The captured
+  mutant subprocess output and traceback are in failing_check_output.txt.
+- The mutant is written only to a temporary directory, which is cleaned up.
+
+Runtime facts
+- Python 3.15.2 confirmed unicode("hello", "utf-8") raises NameError.
+- It also confirmed that encoding str produces bytes and decoding those bytes
+  produces str.
+
+Validation commands
+- python3 work/R28-T030/check.py - passed, exit status 0.
+- python3 -m json.tool work/R28-T030/inputs.json - passed.
+- Python AST parsing of work/R28-T030/check.py - passed.
+- Question 62 Markdown fence check - three balanced fenced blocks.
+- git diff --check - passed.
+
+Rendering
+- README.md has no documented render/regenerate process.
+- Neither pandoc nor a markdown CLI renderer was available, so rendered-page
+  verification was not performed.
+- Python, Git, and OS versions are recorded in tool_versions.txt.

@@ -1,0 +1,11 @@
+Mutation executed by the source-derived Question 62 checker:
+One-line mutant: u = s.encode("utf-8")
+Expected plain-text output: 'hello\n'
+Actual mutant stdout: "b'hello'\n"
+Mutant subprocess exit status: 1
+Captured mutant traceback:
+Traceback (most recent call last):
+  File "/var/folders/sy/kw8ftrbx27x3g_gc29_1g8hc0000gn/T/check_q62__rrh5wfb/question62.py", line 5, in <module>
+    assert type(u) is str
+           ^^^^^^^^^^^^^^
+AssertionError

@@ -1,0 +1,8 @@
+$ python3 work/R28-T030/check.py
+Source: 100+ Python challenging programming exercises for Python 3.md, Question 62 solution
+Published input: 'hello'; expected: 'hello\n'; actual: 'hello\n'
+Smallest input: 'a'; expected: 'a\n'; actual: 'a\n'
+Intermediate assertions passed: s and u are str, equal, and identical.
+UTF-8 bytes mutant rejected: stdout="b'hello'\n"; exit status=1.
+All Question 62 checks passed.
+Exit status: 0
