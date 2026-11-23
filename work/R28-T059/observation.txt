@@ -1,0 +1,3 @@
+Loop bound for published example: range(35+1) -> at most 36 iterations
+Loop bound for smallest input: range(1+1) -> at most 2 iterations
+Extra space: O(1) (only scalar integers i, j and the ns string)
