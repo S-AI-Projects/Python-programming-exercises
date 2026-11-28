@@ -1,0 +1,8 @@
+R28-T005 Tool Versions
+==================================================
+Python Version:    3.15.2
+Python Build:      3.15.2 (main, Oct 25 2026, 16:57:51) [Clang 21.0.0 (clang-2100.3.34.2)]
+Python Executable: /opt/homebrew/opt/python@3.15/bin/python3.15
+Git Version:       git version 2.54.0
+OS Platform:       macOS-27.2.1-arm64-arm-64bit-Mach-O
+Architecture:      arm64

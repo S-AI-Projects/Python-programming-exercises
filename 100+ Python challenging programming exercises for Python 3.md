@@ -1174,6 +1174,21 @@ anAmerican.printNationality()
 American.printNationality()
 ```
 
+Output:
+```text
+America
+America
+```
+
+Explanation:
+- **`@staticmethod` decorator**: `@staticmethod` defines a method that does not require `self` (an instance reference) or `cls` (a class reference) as its first argument. It behaves like a plain function bound within the class namespace.
+- **Instance creation**: `anAmerican = American()` creates an instance object `anAmerican` of the `American` class.
+- **Calling via an instance**: The method can be called using an object: `anAmerican.printNationality()`. Python routes the call to the static method without implicitly passing the instance.
+- **Calling via the class**: It can also be called directly using the class: `American.printNationality()`.
+- **Output behavior**: Both calls execute the same static method and print `America` on separate lines.
+- **No-input demonstration**: This demonstration requires no input parameters or console arguments.
+
+
 ### Question 51
 Define a class named American and its subclass NewYorker. 
 
